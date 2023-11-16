@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { theme } from "../theme";
+import {useName} from "../utils/useName";
 import {
     HomePath,
     ResumePath,
@@ -10,6 +10,8 @@ import {
     CertificationsPath,
     ContactPath,
   } from "../routing/paths";
+import { theme } from "../theme";
+
 
 const NavBarWrapper = styled.div`
   text-align: left;
@@ -56,29 +58,30 @@ export const StyledHeading = styled.h1`
 
 
 export function NavigationBar(): ReactElement {
+  const name = useName();
     return (
         <NavBarWrapper>
-            <StyledHeading>Caleb L'Italien's Resume</StyledHeading>
-                <StyledNav>
-                    <StyledNavLink as={NavLink} to={HomePath}>
-                    Home
-                    </StyledNavLink>
-                    <StyledNavLink as={NavLink} to={ResumePath}>
-                    Resume
-                    </StyledNavLink>
-                    <StyledNavLink as={NavLink} to={ProjectsPath}>
-                    Projects
-                    </StyledNavLink>
-                    <StyledNavLink as={NavLink} to={SkillsPath}>
-                    Skills
-                    </StyledNavLink>
-                    <StyledNavLink as={NavLink} to={CertificationsPath}>
-                    Certifications
-                    </StyledNavLink>
-                    <StyledNavLink as={NavLink} to={ContactPath}>
-                    Contact
-                    </StyledNavLink>
-                </StyledNav>
+            <StyledHeading>{name}</StyledHeading>
+            <StyledNav>
+              <StyledNavLink as={NavLink} to={HomePath}>
+                Home
+              </StyledNavLink>
+              <StyledNavLink as={NavLink} to={ResumePath}>
+                Resume
+              </StyledNavLink>
+              <StyledNavLink as={NavLink} to={ProjectsPath}>
+                Projects
+              </StyledNavLink>
+              <StyledNavLink as={NavLink} to={SkillsPath}>
+                Skills
+              </StyledNavLink>
+              <StyledNavLink as={NavLink} to={CertificationsPath}>
+                Certifications
+              </StyledNavLink>
+              <StyledNavLink as={NavLink} to={ContactPath}>
+                Contact
+              </StyledNavLink>
+            </StyledNav>
         </NavBarWrapper>
     )
 }

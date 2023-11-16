@@ -12,12 +12,12 @@ export function AllRoutes() {
   return (
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/resume" element={<Resume />} />
-      <Route path="/projects" element={<Projects />} />
-      <Route path="/skills" element={<Skills />} />
-      <Route path="/certifications" element={<Certifications />} />
-      <Route path="/contact" element={<Contact />} />
+      <Route path="/" element={<Home />} />
+      <Route path="resume" element={<Resume />} />
+      <Route path="projects" element={<Projects />} />
+      <Route path="skills" element={<Skills />} />
+      <Route path="certifications" element={<Certifications />} />
+      <Route path="contact" element={<Contact />} />
     </Routes>
   );
 }

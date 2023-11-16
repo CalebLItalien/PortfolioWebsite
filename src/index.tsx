@@ -5,7 +5,6 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 // import { Overview } from "./Overview";
 // import { UserStateProvider } from "./providers/UserStateProvider";
-// import { AuthProvider } from "./firebase/AuthProvider";
 import { AllRoutes } from "./routing/AllRoutes";
 
 const root = ReactDOM.createRoot(
