@@ -12,7 +12,7 @@ export function AllRoutes() {
   return (
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/" element={<Home />} />
+      <Route path="home" element={<Home />} />
       <Route path="resume" element={<Resume />} />
       <Route path="projects" element={<Projects />} />
       <Route path="skills" element={<Skills />} />
