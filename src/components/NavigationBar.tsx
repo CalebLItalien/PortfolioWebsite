@@ -1,5 +1,4 @@
 import { ReactElement } from "react";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import {useName} from "../utils/useName";
 import {
@@ -27,7 +26,7 @@ const StyledNav = styled.nav`
   display: flex;
 `;
 
-const StyledNavLink = styled.a`
+const StyledAnchorLink = styled.a`
   display: block;
   position: relative;
   color: ${theme.colors.TEXT_GRAY};
@@ -47,6 +46,9 @@ const StyledNavLink = styled.a`
       border-radius: 0 0 8px 8px;
     }
   }
+  &:hover, &:focus, &:active {
+    color: ${theme.colors.DARK_RED}; // for hover, focus, active state
+  }
 `;
 
 export const StyledHeading = styled.h1`
@@ -63,24 +65,24 @@ export function NavigationBar(): ReactElement {
       <NavBarWrapper>
           <StyledHeading>{name}</StyledHeading>
           <StyledNav>
-            <StyledNavLink as={NavLink} to={HomePath}>
+            <StyledAnchorLink href={HomePath}>
               Home
-            </StyledNavLink>
-            <StyledNavLink as={NavLink} to={ResumePath}>
+            </StyledAnchorLink>
+            <StyledAnchorLink href={ResumePath}>
               Resume
-            </StyledNavLink>
-            <StyledNavLink as={NavLink} to={ProjectsPath}>
+            </StyledAnchorLink>
+            <StyledAnchorLink href={ProjectsPath}>
               Projects
-            </StyledNavLink>
-            <StyledNavLink as={NavLink} to={SkillsPath}>
+            </StyledAnchorLink>
+            <StyledAnchorLink href={SkillsPath}>
               Skills
-            </StyledNavLink>
-            <StyledNavLink as={NavLink} to={CertificationsPath}>
+            </StyledAnchorLink>
+            <StyledAnchorLink href={CertificationsPath}>
               Certifications
-            </StyledNavLink>
-            <StyledNavLink as={NavLink} to={ContactPath}>
+            </StyledAnchorLink>
+            <StyledAnchorLink href={ContactPath}>
               Contact
-            </StyledNavLink>
+            </StyledAnchorLink>
           </StyledNav>
       </NavBarWrapper>
   );
