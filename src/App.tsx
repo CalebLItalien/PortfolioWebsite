@@ -15,17 +15,16 @@ const AppWrapper = styled.div`
 `;
 
 const StyledSection = styled.section`
-  padding: 5rem 0; // Add padding to the section for a spacious look
-  min-height: 100vh; // Minimum height of 100% of the viewport height
-  display: flex; // Use flexbox for layout
-  flex-direction: column; // Stack children vertically
-  align-items: center; // Center children horizontally
-  justify-content: center; // Center children vertically
-  background: #ffffff; // A white background
-  color: #333333; // Dark text for contrast
-  text-align: center; // Center the text
+  min-height: 100vh; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  background: #ffffff; 
+  color: #333333; 
+  text-align: center; 
 
-  &:nth-of-type(odd) { // This styles odd-numbered sections with a different background
+  &:nth-of-type(odd) { 
     background: #f7f7f7;
   }
 

@@ -13,6 +13,10 @@ import { theme } from "../theme";
 
 
 const NavBarWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
   text-align: left;
   border-bottom: 2px solid ${theme.colors.HARD_YELLOW};
   background: ${theme.colors.LIGHTER_GRAY};
@@ -68,14 +72,14 @@ export function NavigationBar(): ReactElement {
             <StyledAnchorLink href={HomePath}>
               Home
             </StyledAnchorLink>
-            <StyledAnchorLink href={ResumePath}>
-              Resume
+            <StyledAnchorLink href={SkillsPath}>
+              Skills
             </StyledAnchorLink>
             <StyledAnchorLink href={ProjectsPath}>
               Projects
             </StyledAnchorLink>
-            <StyledAnchorLink href={SkillsPath}>
-              Skills
+            <StyledAnchorLink href={ResumePath}>
+              Resume
             </StyledAnchorLink>
             <StyledAnchorLink href={CertificationsPath}>
               Certifications
