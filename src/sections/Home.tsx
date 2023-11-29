@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useHeadshot } from '../hooks/useHeadshot';
 import { useSocialButtons } from '../hooks/useSocialButtons';
+import { useBio } from '../hooks/useBio';
 
 const HomeWrapper = styled.div`
   margin-top: -20vh;
@@ -50,12 +51,32 @@ const SocialButton = styled.a`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-`;
+  position: relative; // Needed for tooltip positioning
 
+  ::before {
+    content: attr(data-tooltip); // Use data-tooltip attribute for tooltip text
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8); // Tooltip background color
+    color: white; // Tooltip text color
+    padding: 4px 8px; // Adjust padding as needed
+    border-radius: 4px;
+    top: 100%; // Position the tooltip above the button
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0; // Initially hidden
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &:hover::before {
+    opacity: 1; // Show the tooltip on hover
+  }
+`;
 const Home: React.FC = () => {
   const headshot = useHeadshot();
   const socialButtons = useSocialButtons();
-
+  const bioText = useBio();
+  const [githubLink, githubImage] = [socialButtons[0].link, socialButtons[0].imageUrl];
+  const [linkedinLink, linkedinImage] = [socialButtons[1].link, socialButtons[1].imageUrl];
   const textRef = useRef<HTMLParagraphElement>(null);
   const [textWidth, setTextWidth] = useState(0);
 
@@ -63,25 +84,26 @@ const Home: React.FC = () => {
     if (textRef.current) {
       setTextWidth(textRef.current.offsetWidth);
     }
-  }, []);
+  }, [bioText]);
 
   return (
     <HomeWrapper>
       <HeadShotImage src={headshot} alt="headshot"/>
       <ImageUnderline width={textWidth} />
-      <Bio ref={textRef}>
-        Hi There! My name is Caleb L'Italien; I'm a senior at
-        Union College, studying Computer Science and Mathematics.
-      </Bio>
+      <Bio ref={textRef}> {bioText} </Bio>
       <ButtonWrapper>
-        {socialButtons.map((button, index) => (
-          <SocialButton
-            key={index}
-            href={button.link}
-            target="_blank"
-            style={{ backgroundImage: `url(${button.imageUrl})` }}
-          ></SocialButton>
-        ))}
+      <SocialButton
+        href={githubLink}
+        target="_blank"
+        data-tooltip="Github" 
+        style={{ backgroundImage: `url(${githubImage})` }}
+        ></SocialButton>
+      <SocialButton
+        href={linkedinLink}
+        target="_blank"
+        data-tooltip="LinkedIn" 
+        style={{ backgroundImage: `url(${linkedinImage})` }}
+      ></SocialButton>
       </ButtonWrapper>
     </HomeWrapper>
   );

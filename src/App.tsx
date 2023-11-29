@@ -6,6 +6,7 @@ import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
 import Certifications from "./sections/Certifications";
 import Contact from "./sections/Contact";
+import Experience from "./sections/Experience";
 const AppWrapper = styled.div`
   height: 100vh;
   padding: 0;
@@ -47,6 +48,9 @@ export function App() {
       <NavigationBar />
       <StyledSection id="home">
         <Home/>
+      </StyledSection>
+      <StyledSection id="experience">
+        <Experience/>
       </StyledSection>
       <StyledSection id="skills">
         <Skills/>

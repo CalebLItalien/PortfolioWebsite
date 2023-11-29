@@ -8,6 +8,7 @@ import {
     SkillsPath,
     CertificationsPath,
     ContactPath,
+    ExperiencePath,
   } from "../routing/paths";
 import { theme } from "../theme";
 
@@ -71,6 +72,9 @@ export function NavigationBar(): ReactElement {
           <StyledNav>
             <StyledAnchorLink href={HomePath}>
               Home
+            </StyledAnchorLink>
+            <StyledAnchorLink href={ExperiencePath}>
+              Experience
             </StyledAnchorLink>
             <StyledAnchorLink href={SkillsPath}>
               Skills
