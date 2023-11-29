@@ -7,6 +7,7 @@ import { useBio } from '../hooks/useBio';
 const HomeWrapper = styled.div`
   margin-top: -20vh;
   position: relative;
+  justify-content: center; 
 `;
 
 // interface HomeProps {

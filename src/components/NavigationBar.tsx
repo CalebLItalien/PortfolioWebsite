@@ -1,17 +1,12 @@
-import { ReactElement } from "react";
+import { ReactElement, useRef, useEffect } from "react";
 import styled from "styled-components";
 import {useName} from "../utils/useName";
-import {
-    HomePath,
-    ResumePath,
-    ProjectsPath,
-    SkillsPath,
-    CertificationsPath,
-    ContactPath,
-    ExperiencePath,
-  } from "../routing/paths";
 import { theme } from "../theme";
 
+interface NavigationBarProps {
+  onHeightChange: (height: number) => void;
+  scrollToSection: (sectionId: string) => void;
+}
 
 const NavBarWrapper = styled.div`
   position: fixed;
@@ -64,31 +59,47 @@ export const StyledHeading = styled.h1`
 `;
 
 
-export function NavigationBar(): ReactElement {
+export function NavigationBar({ onHeightChange, scrollToSection }: NavigationBarProps): ReactElement {
+  const navBarRef = useRef<HTMLDivElement>(null);
   const name = useName();
+
+  useEffect(() => {
+    const updateNavBarHeight = () => {
+      if (navBarRef.current) {
+        const newHeight = navBarRef.current.offsetHeight;
+        onHeightChange(newHeight); 
+      }
+    };
+
+    updateNavBarHeight();
+    window.addEventListener('resize', updateNavBarHeight);
+
+    return () => window.removeEventListener('resize', updateNavBarHeight);
+  }, [onHeightChange]);
+
   return (
-      <NavBarWrapper>
+      <NavBarWrapper ref={navBarRef}>
           <StyledHeading>{name}</StyledHeading>
           <StyledNav>
-            <StyledAnchorLink href={HomePath}>
+            <StyledAnchorLink onClick={() => scrollToSection('home')}>
               Home
             </StyledAnchorLink>
-            <StyledAnchorLink href={ExperiencePath}>
+            <StyledAnchorLink onClick={() => scrollToSection('experience')}>
               Experience
             </StyledAnchorLink>
-            <StyledAnchorLink href={SkillsPath}>
+            <StyledAnchorLink onClick={() => scrollToSection('skills')}>
               Skills
             </StyledAnchorLink>
-            <StyledAnchorLink href={ProjectsPath}>
+            <StyledAnchorLink onClick={() => scrollToSection('projects')}>
               Projects
             </StyledAnchorLink>
-            <StyledAnchorLink href={ResumePath}>
+            <StyledAnchorLink onClick={() => scrollToSection('resume')}>
               Resume
             </StyledAnchorLink>
-            <StyledAnchorLink href={CertificationsPath}>
+            <StyledAnchorLink onClick={() => scrollToSection('certifications')}>
               Certifications
             </StyledAnchorLink>
-            <StyledAnchorLink href={ContactPath}>
+            <StyledAnchorLink onClick={() => scrollToSection('contact')}>
               Contact
             </StyledAnchorLink>
           </StyledNav>

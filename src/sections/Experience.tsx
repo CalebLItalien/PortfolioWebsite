@@ -2,7 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ExperienceWrapper = styled.div`
-  // Some styling for the Experience section
+  position: relative;
+`;
+
+const ExperienceTitle = styled.h1`
+  position: absolute;
+  top: 10vh;
+  left: 10vw;
+  margin: 0;
+`;
+
+const Underline = styled.div`
+  height: 2px; 
+  width: 80vw; 
+  background-color: black;
+  position: absolute;
+  top: 15vh; 
+  left: 10vw;
 `;
 
 // interface ExperienceProps {
@@ -12,9 +28,8 @@ const ExperienceWrapper = styled.div`
 const Experience: React.FC = () => {
   return (
     <ExperienceWrapper>
-      <h1>Welcome to My Portfolio</h1>
-      <p>This is the Experience section where I introduce myself and highlight my expertise.</p>
-      // Add more content and components as needed
+      <ExperienceTitle>Experience</ExperienceTitle>
+      <Underline />
     </ExperienceWrapper>
   );
 };
