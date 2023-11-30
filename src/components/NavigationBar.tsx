@@ -1,6 +1,6 @@
 import { ReactElement, useRef, useEffect } from "react";
 import styled from "styled-components";
-import {useName} from "../utils/useName";
+import {useName} from "../hooks/useName";
 import { theme } from "../theme";
 
 interface NavigationBarProps {

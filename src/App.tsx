@@ -82,7 +82,8 @@ export function App() {
   };
   return (
     <AppWrapper>
-      <NavigationBar onHeightChange={setNavBarHeight} scrollToSection={scrollToSection}/>
+      <NavigationBar onHeightChange={setNavBarHeight} 
+          scrollToSection={scrollToSection}/>
       <CenteredSection id="home">
         <Home/>
       </CenteredSection>
