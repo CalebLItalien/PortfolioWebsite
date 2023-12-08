@@ -1,77 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { useCompanyNames } from '../../hooks/useCompanyNames';
 import { useCompanyDescriptions } from '../../hooks/useCompanyDescriptions';
-
-const ExperienceWrapper = styled.div`
-  position: relative;
-`;
-
-const ExperienceTitle = styled.h1`
-  position: absolute;
-  top: 10vh;
-  left: 10vw;
-  margin: 0;
-`;
-
-const Underline = styled.div`
-  height: 2px; 
-  width: 80vw; 
-  background-color: black;
-  position: absolute;
-  top: 15vh; 
-  left: 10vw;
-`;
-
-const DropdownWrapper = styled.div`
-  position: absolute;
-  top: 20vh;
-  left: 25vw; 
-  width: 200px;
-`;
-
-const DropdownButton = styled.button`
-  padding: 10px;
-  width: 100%;
-  border: none;
-  background-color: #f0f0f0;
-  cursor: pointer;
-`;
-
-type DropdownProps = {
-  show: boolean;
-};
-
-const DropdownContent = styled.div<DropdownProps>`
-  display: ${(props) => (props.show ? 'block' : 'none')}; 
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-`;
-
-const DropdownOption = styled.button`
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  background: none;
-  border: none;
-  text-align: center;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #f1f1f1;
-  }
-`;
-
-export const CompanyImage = styled.img`
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px; // Add rounded corners if desired
-  margin-right: 8px; // Adjust spacing as needed
-`;
+import { 
+  DropdownWrapper, 
+  DropdownButton, 
+  DropdownContent, 
+  DropdownOption, 
+} from '../../styles/Dropdown';
+import { ExperienceTitle } from '../../styles/Title';
+import { Underline } from '../../styles/Underline';
+import { CompanyImage } from '../../styles/Image';
+import { ExperienceWrapper } from '../../styles/SectionWrapper';
 
 const Experience: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -104,11 +43,11 @@ const Experience: React.FC = () => {
         {showDropdown && (
           <DropdownContent show={showDropdown}>
             {companyNames.map((companyName, index) => {
-              const imageCompanyName = companyName.toLowerCase().trim().replace(/\s/g, '');
+              const imageCompany = companyName.toLowerCase().trim().replace(/\s/g, '');
               return (
                 <DropdownOption key={index} onClick={() => selectOption(index, companyName)}>
                 <CompanyImage
-                  src={require(`../../assets/${imageCompanyName}.png`).default}
+                  src={require(`../../assets/${imageCompany}.png`).default}
                   alt={companyName}
                 />
                 {companyName}
