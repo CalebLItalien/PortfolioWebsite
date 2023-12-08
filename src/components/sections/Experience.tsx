@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useCompanyNames } from '../hooks/useCompanyNames';
+import { useCompanyNames } from '../../hooks/useCompanyNames';
+import { useCompanyDescriptions } from '../../hooks/useCompanyDescriptions';
+
 const ExperienceWrapper = styled.div`
   position: relative;
 `;
@@ -23,9 +25,9 @@ const Underline = styled.div`
 
 const DropdownWrapper = styled.div`
   position: absolute;
-  top: 20vh; // Adjust as needed
-  left: 25vw; // Center of the left half
-  width: 200px; // Adjust width as needed
+  top: 20vh;
+  left: 25vw; 
+  width: 200px;
 `;
 
 const DropdownButton = styled.button`
@@ -64,15 +66,18 @@ const DropdownOption = styled.button`
   }
 `;
 
-// interface ExperienceProps {
-//   // Properties for the Experience component
-// }
-
+export const CompanyImage = styled.img`
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; // Add rounded corners if desired
+  margin-right: 8px; // Adjust spacing as needed
+`;
 
 const Experience: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [info, setInfo] = useState('');
   const companyNames = useCompanyNames();
+  const companyDescriptions = useCompanyDescriptions();
   const [selectedOption, setSelectedOption] = useState(companyNames[0] || ''); 
 
   useEffect(() => {
@@ -83,12 +88,12 @@ const Experience: React.FC = () => {
   
   const toggleDropdown = () => setShowDropdown(!showDropdown);
 
-  const selectOption = (optionInfo: string, optionLabel: string) => {
-    setInfo(optionInfo);
+  const selectOption = async (optionIndex: number, optionLabel: string) => {
+    const description = companyDescriptions[optionIndex] || 'No description available';
+    setInfo(`${description}`);
     setSelectedOption(optionLabel);
     setShowDropdown(false);
   };
-
 
   return (
     <ExperienceWrapper>
@@ -98,13 +103,18 @@ const Experience: React.FC = () => {
         <DropdownButton onClick={toggleDropdown}>{selectedOption}</DropdownButton>
         {showDropdown && (
           <DropdownContent show={showDropdown}>
-            {companyNames.map((companyName, index) => (
-              <DropdownOption
-                key={index}
-                onClick={() => selectOption(`Info for ${companyName}`, companyName)}>
-                  {companyName}
-                </DropdownOption>
-            ))}
+            {companyNames.map((companyName, index) => {
+              const imageCompanyName = companyName.toLowerCase().trim().replace(/\s/g, '');
+              return (
+                <DropdownOption key={index} onClick={() => selectOption(index, companyName)}>
+                <CompanyImage
+                  src={require(`../../assets/${imageCompanyName}.png`).default}
+                  alt={companyName}
+                />
+                {companyName}
+              </DropdownOption>
+              );
+            })}
           </DropdownContent>
         )}
       </DropdownWrapper>

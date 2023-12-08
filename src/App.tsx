@@ -1,13 +1,13 @@
 import {useState} from 'react';
 import styled from "styled-components";
 import { NavigationBar } from "./components/NavigationBar";
-import Home  from "./sections/Home";
-import Resume from "./sections/Resume";
-import Projects from "./sections/Projects";
-import Skills from "./sections/Skills";
-import Certifications from "./sections/Certifications";
-import Contact from "./sections/Contact";
-import Experience from "./sections/Experience";
+import Home  from "./components/sections/Home";
+import Resume from "./components/sections/Resume";
+import Projects from "./components/sections/Projects";
+import Skills from "./components/sections/Skills";
+import Certifications from "./components/sections/Certifications";
+import Contact from "./components/sections/Contact";
+import Experience from "./components/sections/Experience";
 
 const AppWrapper = styled.div`
   height: 100vh;

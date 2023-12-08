@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useHeadshot } from '../hooks/useHeadshot';
-import { useSocialButtons } from '../hooks/useSocialButtons';
-import { useBio } from '../hooks/useBio';
+import { useHeadshot } from '../../hooks/useHeadshot';
+import { useSocialButtons } from '../../hooks/useSocialButtons';
+import { useBio } from '../../hooks/useBio';
 
 const HomeWrapper = styled.div`
   margin-top: -20vh;
@@ -48,28 +48,28 @@ const SocialButton = styled.a`
   display: inline-block;
   width: 32px;
   height: 32px;
-  margin: 0 10px; // Adjust the spacing as needed
+  margin: 0 10px; 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  position: relative; // Needed for tooltip positioning
+  position: relative; 
 
   ::before {
-    content: attr(data-tooltip); // Use data-tooltip attribute for tooltip text
+    content: attr(data-tooltip); 
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.8); // Tooltip background color
-    color: white; // Tooltip text color
-    padding: 4px 8px; // Adjust padding as needed
+    background-color: rgba(0, 0, 0, 0.8); 
+    color: white; =
+    padding: 4px 8px; 
     border-radius: 4px;
-    top: 100%; // Position the tooltip above the button
+    top: 100%; 
     left: 50%;
     transform: translateX(-50%);
-    opacity: 0; // Initially hidden
+    opacity: 0; 
     transition: opacity 0.2s ease-in-out;
   }
 
   &:hover::before {
-    opacity: 1; // Show the tooltip on hover
+    opacity: 1; 
   }
 `;
 const Home: React.FC = () => {
