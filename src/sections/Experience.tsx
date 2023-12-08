@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useCompanyNames } from '../hooks/useCompanyNames';
 const ExperienceWrapper = styled.div`
   position: relative;
 `;
@@ -70,15 +71,25 @@ const DropdownOption = styled.button`
 
 const Experience: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [info, setInfo] = useState('Info for Option 1');
-  const [selectedOption, setSelectedOption] = useState('Option 1');
+  const [info, setInfo] = useState('');
+  const companyNames = useCompanyNames();
+  const [selectedOption, setSelectedOption] = useState(companyNames[0] || ''); 
 
+  useEffect(() => {
+    if (companyNames.length > 0) {
+      setSelectedOption(companyNames[0]);
+    }
+  }, [companyNames]);
+  
   const toggleDropdown = () => setShowDropdown(!showDropdown);
+
   const selectOption = (optionInfo: string, optionLabel: string) => {
     setInfo(optionInfo);
     setSelectedOption(optionLabel);
     setShowDropdown(false);
-  }
+  };
+
+
   return (
     <ExperienceWrapper>
       <ExperienceTitle>Experience</ExperienceTitle>
@@ -87,9 +98,13 @@ const Experience: React.FC = () => {
         <DropdownButton onClick={toggleDropdown}>{selectedOption}</DropdownButton>
         {showDropdown && (
           <DropdownContent show={showDropdown}>
-            <DropdownOption onClick={() => selectOption('Info for Option 1', 'Option 1')}>Option 1</DropdownOption>
-            <DropdownOption onClick={() => selectOption('Info for Option 2', 'Option 2')}>Option 2</DropdownOption>
-            <DropdownOption onClick={() => selectOption('Info for Option 3', 'Option 3')}>Option 3</DropdownOption>
+            {companyNames.map((companyName, index) => (
+              <DropdownOption
+                key={index}
+                onClick={() => selectOption(`Info for ${companyName}`, companyName)}>
+                  {companyName}
+                </DropdownOption>
+            ))}
           </DropdownContent>
         )}
       </DropdownWrapper>
