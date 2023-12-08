@@ -6,7 +6,7 @@ import { ButtonWrapper, SocialButton } from '../../styles/Button';
 import { HeadshotUnderline } from '../../styles/Underline';
 import { Bio } from '../../styles/Bio';
 import { HeadShotImage } from '../../styles/Image';
-import { HomeWrapper } from '../../styles/SectionWrapper';
+import { HomeWrapper } from '../../styles/Wrappers';
 
 const Home: React.FC = () => {
   const headshot = useHeadshot();

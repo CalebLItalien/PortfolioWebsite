@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import styled from "styled-components";
 import { NavigationBar } from "./components/NavigationBar";
 import Home  from "./components/sections/Home";
@@ -8,6 +8,7 @@ import Skills from "./components/sections/Skills";
 import Certifications from "./components/sections/Certifications";
 import Contact from "./components/sections/Contact";
 import Experience from "./components/sections/Experience";
+import { CenteredSection, StandardSection } from "./styles/Wrappers";
 
 const AppWrapper = styled.div`
   height: 100vh;
@@ -15,57 +16,6 @@ const AppWrapper = styled.div`
   margin: 0;
   display: flex;
   flex-direction: column;
-`;
-
-const CenteredSection = styled.section`
-  min-height: 100vh; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center; 
-  background: #ffffff; 
-  color: #333333; 
-  text-align: center; 
-
-  &:nth-of-type(odd) { 
-    background: #f7f7f7;
-  }
-
-  h2 {
-    margin: 0 0 2rem 0; 
-    font-size: 2.5rem; 
-  }
-
-  p {
-    font-size: 1rem; 
-    line-height: 1.6; 
-    max-width: 600px; 
-    margin: 0 auto; 
-  }
-`;
-
-const StandardSection = styled.section`
-  min-height: 100vh; 
-  display: flex; 
-  flex-direction: column; 
-  background: #ffffff; 
-  color: #333333; 
-  text-align: center; 
-
-  &:nth-of-type(odd) { 
-    background: #f7f7f7;
-  }
-
-  h2 {
-    margin: 0 0 2rem 0; 
-    font-size: 2.5rem; 
-  }
-
-  p {
-    font-size: 1rem; 
-    line-height: 1.6; 
-    max-width: 600px; 
-    margin: 0 auto; 
-  }
 `;
 
 export function App() {
