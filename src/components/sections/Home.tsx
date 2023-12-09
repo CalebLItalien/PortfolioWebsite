@@ -2,11 +2,11 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useHeadshot } from '../../hooks/useHeadshot';
 import { useSocialButtons } from '../../hooks/useSocialButtons';
 import { useBio } from '../../hooks/useBio';
-import { ButtonWrapper, SocialButton } from '../../styles/Button';
+import { MarginButtonWrapper, SocialButton } from '../../styles/Button';
 import { HeadshotUnderline } from '../../styles/Underline';
 import { Bio } from '../../styles/Bio';
 import { HeadShotImage } from '../../styles/Image';
-import { HomeWrapper } from '../../styles/Wrappers';
+import { HomeWrapper } from '../../styles/SectionWrappers';
 
 const Home: React.FC = () => {
   const headshot = useHeadshot();
@@ -28,7 +28,7 @@ const Home: React.FC = () => {
       <HeadShotImage src={headshot} alt="headshot"/>
       <HeadshotUnderline width={textWidth} />
       <Bio ref={textRef}> {bio} </Bio>
-      <ButtonWrapper>
+      <MarginButtonWrapper>
       <SocialButton
         href={githubLink}
         target="_blank"
@@ -41,7 +41,7 @@ const Home: React.FC = () => {
         data-tooltip="LinkedIn" 
         style={{ backgroundImage: `url(${linkedinImage})` }}
       ></SocialButton>
-      </ButtonWrapper>
+      </MarginButtonWrapper>
     </HomeWrapper>
   );
 };

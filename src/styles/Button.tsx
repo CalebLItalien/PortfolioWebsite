@@ -1,10 +1,38 @@
 import styled from 'styled-components';
 
-export const ButtonWrapper = styled.div`
+export const MarginButtonWrapper = styled.div`
   display: flex;
   justify-content: center; 
   margin-top: 20px;
 `;
+
+export const ButtonWrapper = styled.div`
+display: flex;
+justify-content: center; 
+`;
+
+export const SkillsButton = {
+  flex: '1',
+  border: 'none',
+  background: 'transparent',
+};
+
+export const TopSkillsButton = {
+  ...SkillsButton,
+  borderRadius: '50px 0 0 0',
+};
+
+export const BottomSkillsButton = {
+  ...SkillsButton,
+  borderRadius: '0 0 0 50px',
+};
+
+export const SkillsButtonWrapper: React.CSSProperties = {
+  flexDirection: 'column',
+  width: '33%',
+  height: '100%',
+};
+
 
 export const SocialButton = styled.a`
   display: inline-block;

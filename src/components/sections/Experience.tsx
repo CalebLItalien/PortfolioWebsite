@@ -7,10 +7,10 @@ import {
   DropdownContent, 
   DropdownOption, 
 } from '../../styles/Dropdown';
-import { ExperienceTitle } from '../../styles/Title';
+import { Title } from '../../styles/Title';
 import { Underline } from '../../styles/Underline';
 import { CompanyImage } from '../../styles/Image';
-import { ExperienceWrapper } from '../../styles/Wrappers';
+import { ExperienceWrapper } from '../../styles/SectionWrappers';
 
 const Experience: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -36,7 +36,7 @@ const Experience: React.FC = () => {
 
   return (
     <ExperienceWrapper>
-      <ExperienceTitle>Experience</ExperienceTitle>
+      <Title>Experience</Title>
       <Underline />
       <DropdownWrapper>
         <DropdownButton onClick={toggleDropdown}>{selectedOption}</DropdownButton>

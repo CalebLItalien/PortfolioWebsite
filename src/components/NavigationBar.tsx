@@ -96,9 +96,9 @@ export function NavigationBar({ onHeightChange, scrollToSection }: NavigationBar
             <StyledAnchorLink onClick={() => scrollToSection('resume')}>
               Resume
             </StyledAnchorLink>
-            <StyledAnchorLink onClick={() => scrollToSection('certifications')}>
+            {/* <StyledAnchorLink onClick={() => scrollToSection('certifications')}>
               Certifications
-            </StyledAnchorLink>
+            </StyledAnchorLink> */}
             <StyledAnchorLink onClick={() => scrollToSection('contact')}>
               Contact
             </StyledAnchorLink>
