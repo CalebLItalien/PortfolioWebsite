@@ -10,7 +10,7 @@ import {
 import { Title } from '../../styles/Title';
 import { Underline } from '../../styles/Underline';
 import { CompanyImage } from '../../styles/Image';
-import { ExperienceWrapper } from '../../styles/SectionWrappers';
+import { ExperienceWrapper } from '../../styles/Wrappers';
 
 const Experience: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);

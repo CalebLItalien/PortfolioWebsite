@@ -25,11 +25,6 @@ const IconContainer = styled.div`
   align-items: center;
 `;
 
-const Proficiency = styled.span`
-  font-size: 12px;
-  margin-top: 5px;
-`;
-
 const Section: React.FC<SectionProps> = ({ title, icons, ratings }) => {
     const sortedIcons = icons.slice().sort((a, b) => {
         const proficiencyOrder = ['Beginner', 'Intermediate', 'Advanced'];
@@ -42,7 +37,7 @@ const Section: React.FC<SectionProps> = ({ title, icons, ratings }) => {
             {sortedIcons.map((icon, index) => (
               <div key={index}>
                 {/* <Icon icon={icon} /> */}
-                <Proficiency>{ratings.get(icon)}</Proficiency>
+                <div>{icon}</div>
               </div>
             ))}
           </IconContainer>

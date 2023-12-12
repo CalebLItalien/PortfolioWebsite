@@ -59,4 +59,7 @@ export const SkillsWrapper = styled.div`
   position: relative;
 `;
 
+export const SkillsRatingsWrapper = styled.div`
+    flex-grow: 1; 
+`;
 

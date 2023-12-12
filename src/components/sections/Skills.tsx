@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SkillsWrapper } from '../../styles/SectionWrappers';
+import { SkillsWrapper, SkillsRatingsWrapper } from '../../styles/Wrappers';
 import { RoundedRectangle } from '../../styles/Frame';
 import { Title } from '../../styles/Title';
 import { Underline } from '../../styles/Underline';
@@ -14,7 +14,7 @@ import { useTechnologies } from '../../hooks/useTechnologies';
 import SkillsRatings from '../SkillsRatings';
 
 const Skills: React.FC = () => {
-  const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
+  const [selectedSkill, setSelectedSkill] = useState<string>('Languages');
 
   const handleButtonClick = (skill: string) => {
     setSelectedSkill(skill);
@@ -51,7 +51,9 @@ const Skills: React.FC = () => {
             Technologies
           </button>
         </ButtonWrapper>
-        {renderSkillsRatings()}
+        <SkillsRatingsWrapper key={selectedSkill}>
+          {renderSkillsRatings()}
+        </SkillsRatingsWrapper>
       </RoundedRectangle>
     </SkillsWrapper>
   );

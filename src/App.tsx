@@ -8,7 +8,7 @@ import Skills from "./components/sections/Skills";
 import Certifications from "./components/sections/Certifications";
 import Contact from "./components/sections/Contact";
 import Experience from "./components/sections/Experience";
-import { CenteredSection, StandardSection } from "./styles/SectionWrappers";
+import { CenteredSection, StandardSection } from "./styles/Wrappers";
 
 const AppWrapper = styled.div`
   height: 100vh;
