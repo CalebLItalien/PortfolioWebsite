@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from "../theme";
 
 export const CenteredSection = styled.section`
   min-height: 100vh; 
@@ -45,6 +46,18 @@ export const StandardSection = styled.section`
   }
 `;
 
+export const NavBarWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  text-align: left;
+  border-bottom: 2px solid ${theme.colors.HARD_YELLOW};
+  background: ${theme.colors.LIGHTER_GRAY};
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+`;
+
 export const ExperienceWrapper = styled.div`
   position: relative;
 `;
@@ -61,5 +74,17 @@ export const SkillsWrapper = styled.div`
 
 export const SkillsRatingsWrapper = styled.div`
     flex-grow: 1; 
+`;
+
+export const ProjectsWrapper = styled.div`
+  position: relative;
+`;
+
+export const ResumeWrapper = styled.div`
+  position: relative;
+`;
+
+export const ContactWrapper = styled.div`
+  position: relative;
 `;
 
