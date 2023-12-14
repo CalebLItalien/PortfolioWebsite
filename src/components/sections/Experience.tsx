@@ -47,7 +47,7 @@ const Experience: React.FC = () => {
               return (
                 <DropdownOption key={index} onClick={() => selectOption(index, companyName)}>
                 <CompanyImage
-                  src={require(`../../assets/${imageCompany}.png`).default}
+                  src={require(`../../assets/companies/${imageCompany}.png`).default}
                   alt={companyName}
                 />
                 {companyName}

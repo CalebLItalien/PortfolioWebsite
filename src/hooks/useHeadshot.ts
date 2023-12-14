@@ -1,4 +1,4 @@
-import headshot from '../assets/headshot.png';
+import headshot from '../assets/headshot/headshot.png';
 
 export function useHeadshot() {
     return headshot;

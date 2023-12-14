@@ -1,9 +1,9 @@
 # Build React Frontend
 FROM node:14 AS frontend-build
 WORKDIR /app
-COPY ./frontend/package.json ./frontend/package-lock.json ./
+COPY ./src/package.json ./src/package-lock.json ./
 RUN npm install
-COPY ./frontend/ ./
+COPY ./src/ ./
 RUN npm run build
 
 # Build Rust Backend
