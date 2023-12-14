@@ -25,6 +25,12 @@ const IconContainer = styled.div`
   align-items: center;
 `;
 
+const StyledIcon = styled.img`
+  width: 2vw;
+  height: auto;
+  margin: 5px;
+`;
+
 const Section: React.FC<SectionProps> = ({ title, icons, ratings }) => {
     const sortedIcons = icons.slice().sort((a, b) => {
         const proficiencyOrder = ['Beginner', 'Intermediate', 'Advanced'];
@@ -34,12 +40,14 @@ const Section: React.FC<SectionProps> = ({ title, icons, ratings }) => {
         <SectionWrapper>
           <SectionTitle>{title}</SectionTitle>
           <IconContainer>
-            {sortedIcons.map((icon, index) => (
-              <div key={index}>
-                {/* <Icon icon={icon} /> */}
-                <div>{icon}</div>
+            {sortedIcons.map((icon, index) => {
+              const iconPath = require(`../assets/skills/${icon.toLowerCase()}.png`);
+              return (
+                <div key={index}>
+                <StyledIcon src={iconPath} alt={icon} />
               </div>
-            ))}
+              );
+              })}
           </IconContainer>
         </SectionWrapper>
       );

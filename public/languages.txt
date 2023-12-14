@@ -3,9 +3,9 @@ TypeScript Advanced
 Python Advanced
 JavaScript Intermediate
 Java Intermediate
-HTML Beginner
+HTML5 Beginner
 CSS Beginner
 Scheme Intermediate
-C# Beginner
+Csharp Beginner
 Rust Intermediate
 Shell Intermediate
