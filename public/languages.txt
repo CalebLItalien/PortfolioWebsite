@@ -1,3 +1,11 @@
 C Advanced
-TypeScript Intermediate
-Python Beginner
+TypeScript Advanced
+Python Advanced
+JavaScript Intermediate
+Java Intermediate
+HTML Beginner
+CSS Beginner
+Scheme Intermediate
+C# Beginner
+Rust Intermediate
+Shell Intermediate
