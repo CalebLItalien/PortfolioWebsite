@@ -5,20 +5,33 @@ use actix_web::{
     Responder,
 };
 use actix_cors::Cors;
+use serd::Deserialize;
 
 #[derive(Deserialize)]
-struct EmailForm {
+struct ContactForm {
     user_email: String,
     user_name: String,
     user_message: String,
 }
 
-async fn send_contact_email(form: web::Json<EmailForm>) -> impl Responder {
+struct ResumeRequest {
+    email: String
+}
+
+async fn send_contact_email(form: web::Json<ContactForm>) -> impl Responder {
     match send_email::send_email(&form.user_email, &form.user_name, &form.user_message) {
         Ok(_) => HttpResponse::Ok().body("Email sent successfully"),
         Err(_) => HttpResponse::InternalServerError().body("Error sending email"),
     }
 }
+
+async fn send_resume(req: web::Json<EmailRequest) -> impl Responder {
+    match send_email_with_resume(&req.email).await {
+        Ok(_) => HttpResponse::Ok().body("Resume sent successfully"),
+        Err(_) => HttpResponse::InternalServerError().body("Error sending resume"),
+    }
+}
+
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -32,6 +45,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .wrap(cors)
             .route("/send-email", web::get().to(send_contact_email))
+            .route("/send-resume", web::get().to(send_resume))
     })
     .bind("127.0.0.1:8080")?
     .run()
