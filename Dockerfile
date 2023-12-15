@@ -18,6 +18,7 @@ FROM debian:bookworm-slim
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
+        nginx \
         openssl \
         libssl-dev \
         build-essential \
@@ -35,10 +36,13 @@ RUN curl -fsSL https://www.openssl.org/source/openssl-3.0.0.tar.gz -o openssl.ta
 
 RUN ldconfig /usr/local/ssl/lib
 
+COPY ./nginx.conf /etc/nginx/nginx.conf
+
 COPY --from=frontend-build /app/build /var/www/html
 COPY --from=backend-build /usr/local/cargo/bin/resume-website-generator /usr/local/bin/resume-website-generator
+
 COPY ./frontend/public/resume.pdf /var/www/html/resume.pdf  
 
 # Port Image
-EXPOSE 8080
-CMD ["resume-website-generator"]
+EXPOSE 8080 8081
+CMD nginx -g 'daemon off;' && resume-website-generator

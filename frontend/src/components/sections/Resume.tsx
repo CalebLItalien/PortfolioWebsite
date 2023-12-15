@@ -12,7 +12,7 @@ const Resume: React.FC = () => {
     }
     
     try {
-      const response = await fetch('http://localhost:8080/send-resume', {
+      const response = await fetch('http://localhost:8081/send-resume', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -43,7 +43,7 @@ async fn send_resume(req: web::Json<ResumeRequest>) -> impl Responder {
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         let cors = Cors::default()
-            .allowed_origin("http://localhost:3000")
+            .allowed_origin("http://localhost:8081")
             .allowed_methods(vec!["POST"])
             .allowed_headers(vec![header::AUTHORIZATION, header::ACCEPT])
             .allowed_header(header::CONTENT_TYPE)
@@ -53,7 +53,7 @@ async fn main() -> std::io::Result<()> {
             .route("/send-email", web::post().to(send_contact_email))
             .route("/send-resume", web::post().to(send_resume))
     })
-    .bind("127.0.0.1:8080")?
+    .bind("127.0.0.1:8081")?
     .run()
     .await
 }
