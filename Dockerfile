@@ -14,13 +14,31 @@ COPY ./api/src ./src
 RUN cargo install --path .
 
 # Finalize Image
-FROM debian:buster-slim
+FROM debian:bookworm-slim
+
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends openssl libssl1.1 \
+    && apt-get install -y --no-install-recommends \
+        openssl \
+        libssl-dev \
+        build-essential \
+        curl \
+        ca-certificates \
+        zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
+
+RUN curl -fsSL https://www.openssl.org/source/openssl-3.0.0.tar.gz -o openssl.tar.gz \
+    && tar -zxf openssl.tar.gz \
+    && cd openssl-3.0.0 \
+    && ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib \
+    && make \
+    && make install
+
+RUN ldconfig /usr/local/ssl/lib
+
 COPY --from=frontend-build /app/build /var/www/html
 COPY --from=backend-build /usr/local/cargo/bin/resume-website-generator /usr/local/bin/resume-website-generator
 COPY ./frontend/public/resume.pdf /var/www/html/resume.pdf  
 
+# Port Image
 EXPOSE 8080
 CMD ["resume-website-generator"]
