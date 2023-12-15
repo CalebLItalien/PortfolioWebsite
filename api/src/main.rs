@@ -3,9 +3,14 @@ use actix_web::{
     App,
     HttpServer,
     Responder,
+    HttpResponse,
+    http::header,
 };
 use actix_cors::Cors;
-use serd::Deserialize;
+use serde::Deserialize;
+
+mod send_mail;
+mod send_resume;
 
 #[derive(Deserialize)]
 struct ContactForm {
@@ -14,19 +19,20 @@ struct ContactForm {
     user_message: String,
 }
 
+#[derive(Deserialize)]
 struct ResumeRequest {
     email: String
 }
 
 async fn send_contact_email(form: web::Json<ContactForm>) -> impl Responder {
-    match send_email::send_email(&form.user_email, &form.user_name, &form.user_message) {
+    match send_mail::send_email(&form.user_email, &form.user_name, &form.user_message).await {
         Ok(_) => HttpResponse::Ok().body("Email sent successfully"),
         Err(_) => HttpResponse::InternalServerError().body("Error sending email"),
     }
 }
 
-async fn send_resume(req: web::Json<EmailRequest) -> impl Responder {
-    match send_email_with_resume(&req.email).await {
+async fn send_resume(req: web::Json<ResumeRequest>) -> impl Responder {
+    match send_resume::send_email_with_resume(&req.email).await {
         Ok(_) => HttpResponse::Ok().body("Resume sent successfully"),
         Err(_) => HttpResponse::InternalServerError().body("Error sending resume"),
     }
@@ -39,13 +45,13 @@ async fn main() -> std::io::Result<()> {
         let cors = Cors::default()
             .allowed_origin("http://localhost:3000")
             .allowed_methods(vec!["POST"])
-            .allowed_headers(vec![http::header::AUTHORIZATION, http::header::ACCEPT])
-            .allowed_header(http:header::CONTENT_TYPE)
+            .allowed_headers(vec![header::AUTHORIZATION, header::ACCEPT])
+            .allowed_header(header::CONTENT_TYPE)
             .max_age(3600);
         App::new()
             .wrap(cors)
-            .route("/send-email", web::get().to(send_contact_email))
-            .route("/send-resume", web::get().to(send_resume))
+            .route("/send-email", web::post().to(send_contact_email))
+            .route("/send-resume", web::post().to(send_resume))
     })
     .bind("127.0.0.1:8080")?
     .run()

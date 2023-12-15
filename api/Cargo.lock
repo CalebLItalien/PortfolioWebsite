@@ -328,6 +328,7 @@ dependencies = [
  "dotenv",
  "lettre",
  "mime",
+ "serde",
  "sqlx",
 ]
 
