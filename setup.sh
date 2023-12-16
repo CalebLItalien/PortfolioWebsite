@@ -3,14 +3,12 @@
 
 # Introduction
 echo "\n"
-echo "Hello there! I'm happy you've decided to build a personal website. Please 
-    follow these steps to build your website."
+echo "Hello there! I'm happy you've decided to build a personal website. Please follow these steps to build your website."
 
 # Requirements
 echo "\n"
 echo "Requirements for the Project:"
-echo "1. Docker - Ensure you have installed the Docker daemon and have it running. 
-    It can be installed at this link: https://www.docker.com/products/docker-desktop/"
+echo "1. Docker - Ensure you have installed the Docker daemon and have it running. It can be installed at this link: https://www.docker.com/products/docker-desktop/"
 echo "2. Internet connection - To download packages and dependencies."
 echo "3. Your name"
 echo "4. A headshot"
@@ -29,15 +27,13 @@ echo "15. The titles of projects you've worked on"
 echo "16. Links to the projects you've worked on"
 echo "17. Descriptions of the projects you've worked on"
 echo "18. A pdf of your resume"
-echo "19. An SMTP Server name, username, and password - see SMTP.md for more 
-    information"
-echo "20. A no reply email, and a personal email"
+echo "19. An SMTP Server name, username, and password - see SMTP.md for more information"
+echo "20. A no reply email and a personal email"
 
 # Acknowledge Requirements
 echo "\n"
 while true; do
-    read -p "Phew! that's quite a lot. But it'll all be worth it! Do you have all these? 
-        Y (yes) or N (no): " yn
+    read -p "Phew! that's quite a lot. But it'll all be worth it! Do you have all these? Y (yes) or N (no): " yn
     case $yn in 
         [Yy]* ) break;;
         [Nn]* ) echo "Please make sure you have all the requirements before proceeding."; exit;;
@@ -96,7 +92,7 @@ while true; do
     read -p "Enter a company description (or '*' if done, '*show' to view companies): " companyDescription
     if [ "$companyDescription" = "*" ]; then
         break
-    elif [ "$companyDescription" = "show" ]; then
+    elif [ "$companyDescription" = "*show" ]; then
         echo "List of Companies:"
         cat ./frontend/public/companies.txt
         echo "\nContinue entering company descriptions."
@@ -181,13 +177,66 @@ while true; do
 done
 
 # Technology Icons
+echo "Please open frontend -> src -> skills."
+echo "For each language, framework/library, and technology you entered, place a technology.png file."
+echo "The file name should be all lowercase, with spaces deleted and all special characters replaced by corresponding words."
+echo "For example:"
+echo "  - If you know C#, the file would be 'csharp.png'"
+echo "  - if you know Visual Basic, the file would be 'visualbasic.png'"
+read -n1 p "Press any key to continue after you have completed this step."
+
+echo "Please open frontend -> src -> assets -> companies."
+echo "Then, for each company you just entered, place a {companyName}.png file as its logo."
+echo "The file name should be all lowercase, with spaces and special characters removed or replaced."
+echo "For example:"
+echo "  - If you worked at 'Example Company AbC LLC.', the file would be 'examplecompanyabcllc.png'"
+echo "  - If you worked at 'My Company, Inc.', the file would be 'mycompanyinc.png'"
+read -n1 -p "Press any key to continue after you have completed this step."
 
 # Project Titles
+echo "Enter your project titles one by one. Type '*' and press Enter when you're done."
+while true; do
+    read -p "Enter a project link (or '*' if done):" projectTitle
+    if [ "$projectTitle" = "*" ]; then
+        break
+    else
+        echo "$projectTitle" >> ./frontend/public/projectLinks.txt
+    fi
+done
 
 # Project Links
+echo "Enter links to your projects one by one. Type '*' and press Enter when you're done."
+echo "You must enter the links in the exact same order you entered the projects' titles."
+echo "If you want to view the list of projects you entered, type '*show' and press Enter."
+while true; do
+    read -p "Enter a project link (or '*' if done, '*show' to view titles): " projectLink
+    if [ "$projectLink" = "*" ]; then
+        break
+    elif [ "$projectLink" = "*show" ]; then
+        echo "List of Projects:"
+        cat ./frontend/public/projectNames.txt
+        echo "\nContinue entering project links."
+    else
+        echo "$projectLink" >> ./frontend/public/projectLinks.txt
+    fi
+done
 
 # Project Descriptions
-
+echo "Enter descriptions of your projects one by one. Type '*' and press Enter when you're done."
+echo "You must enter the descriptions in the exact same order you entered the projects' titles."
+echo "If you want to view the list of projects you entered, type '*show' and press Enter."
+while true; do
+    read -p "Enter a project link (or '*' if done, '*show' to view titles): " projectDes
+    if [ "$projectDes" = "*" ]; then
+        break
+    elif [ "$projectDes" = "*show" ]; then
+        echo "List of Projects:"
+        cat ./frontend/public/projectNames.txt
+        echo "\nContinue entering project links."
+    else
+        echo "$projectDes" >> ./frontend/public/projectLinks.txt
+    fi
+done
 # PDF of Resume
 echo "Please open frontend -> public."
 echo "Then, place a 'resume.pdf' file there. It must be named exactly 'resume.pdf'."
