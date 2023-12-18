@@ -1,5 +1,5 @@
 #!/bin/sh
-# Does edits if necessary to various sections, using flags
+# Does edits to various sections using flags
 
 show_help() {
     echo "Usage: $0 [OPTION]"
