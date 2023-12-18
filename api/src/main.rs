@@ -43,7 +43,7 @@ async fn send_resume(req: web::Json<ResumeRequest>) -> impl Responder {
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         let cors = Cors::default()
-            .allowed_origin("http://localhost:8081")
+            .allowed_origin("http://localhost:8080")
             .allowed_methods(vec!["POST"])
             .allowed_headers(vec![header::AUTHORIZATION, header::ACCEPT])
             .allowed_header(header::CONTENT_TYPE)
