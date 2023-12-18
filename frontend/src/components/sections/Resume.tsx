@@ -37,15 +37,15 @@ const Resume: React.FC = () => {
       <a href={`${process.env.PUBLIC_URL}/resume.pdf`} download>
         Download Resume
       </a>
-      <form onSubmit={handleEmailSubmit}>
+      {/* <form onSubmit={handleEmailSubmit}>
         <input 
           type="email"
           placeholder="Your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-        />
-        <button type="submit">Email Me the Resume</button>
-      </form>
+        /> */}
+        {/* <button type="submit">Email Me the Resume</button> */}
+      {/* </form> */}
     </ResumeWrapper>
   );
 };

@@ -10,5 +10,6 @@ mime = "0.3"
 actix-multipart = "0.6.0"
 actix-cors = "0.6.5"
 lettre = "0.10.1"
+lettre_email = "0.9"
 # sqlx = { version = "0.6.3", features = ["runtime-actix-native-tls", "postgres"] } 
 serde = { version = "1.0.193", features = ["derive"] }
