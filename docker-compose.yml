@@ -8,3 +8,10 @@ services:
     build: ./api
     ports:
       - "8081:8081"
+    environment:
+      - SMTP_SERVER=${SMTP_SERVER}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - NO_REPLY_EMAIL=${NO_REPLY_EMAIL}
+      - INBOX_EMAIL=${INBOX_EMAIL}
+

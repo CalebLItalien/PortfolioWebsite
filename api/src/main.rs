@@ -27,7 +27,10 @@ struct ResumeRequest {
 async fn send_contact_email(form: web::Json<ContactForm>) -> impl Responder {
     match send_mail::send_email(&form.user_email, &form.user_name, &form.user_message).await {
         Ok(_) => HttpResponse::Ok().body("Email sent successfully"),
-        Err(_) => HttpResponse::InternalServerError().body("Error sending email"),
+        Err(e) => {
+            eprintln!("Failed to send email: {:?}", e);
+            HttpResponse::InternalServerError().body("Error sending email")
+        }
     }
 }
 
@@ -53,7 +56,7 @@ async fn main() -> std::io::Result<()> {
             .route("/send-email", web::post().to(send_contact_email))
             .route("/send-resume", web::post().to(send_resume))
     })
-    .bind("127.0.0.1:8081")?
+    .bind("0.0.0.0:8081")?
     .run()
     .await
 }

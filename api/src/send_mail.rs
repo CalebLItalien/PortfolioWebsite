@@ -4,12 +4,10 @@ use lettre::{
     Transport,
     transport::smtp::authentication::Credentials,
 };
-use dotenv::dotenv;
 use std::env;
 
 pub async fn send_email(user_email: &str, user_name: &str, user_message: &str) 
   -> Result<(), Box<dyn std::error::Error>> {
-    dotenv().ok();
 
     let smtp_server = env::var("SMTP_SERVER").expect("SMTP_SERVER must be set");
     let smtp_username = env::var("SMTP_USERNAME").expect("SMTP_USERNAME must be set");

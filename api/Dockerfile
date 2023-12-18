@@ -5,7 +5,7 @@ COPY ./src ./src
 RUN cargo build --release 
 
 FROM debian:bookworm-slim
-RUN apt-get update && apt-get install -y openssl libssl-dev
+RUN apt-get update && apt-get install -y openssl libssl-dev ca-certificates && update-ca-certificates
 COPY --from=backend-build /usr/src/myapp/target/release/resume-website-generator /usr/local/bin/
 EXPOSE 8081
 CMD ["resume-website-generator"]

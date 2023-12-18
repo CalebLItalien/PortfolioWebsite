@@ -14,7 +14,11 @@ const Contact: React.FC = () => {
       return;
     }
 
-    const formData = { name, email, message };
+    const formData = { 
+      user_email: String(email),
+      user_name: String(name),
+      user_message: String(message),
+    };
 
     try {
       const response = await fetch('http://127.0.0.1:8081/send-email', {

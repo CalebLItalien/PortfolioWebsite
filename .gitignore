@@ -23,3 +23,5 @@
 /api/.env
 /api/Cargo.lock
 /api/target/
+
+/.env
