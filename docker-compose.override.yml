@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  frontend:
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "8080:3000"
+
+  backend:
+    build:
+      context: ./api
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./api:/usr/src/myapp
+    ports:
+      - "8081:8081"

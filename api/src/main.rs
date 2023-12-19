@@ -10,7 +10,7 @@ use actix_cors::Cors;
 use serde::Deserialize;
 
 mod send_mail;
-mod send_resume;
+//mod send_resume;
 
 #[derive(Deserialize)]
 struct ContactForm {
@@ -34,12 +34,12 @@ async fn send_contact_email(form: web::Json<ContactForm>) -> impl Responder {
     }
 }
 
-async fn send_resume(req: web::Json<ResumeRequest>) -> impl Responder {
-    match send_resume::send_email_with_resume(&req.email).await {
-        Ok(_) => HttpResponse::Ok().body("Resume sent successfully"),
-        Err(_) => HttpResponse::InternalServerError().body("Error sending resume"),
-    }
-}
+// async fn send_resume(req: web::Json<ResumeRequest>) -> impl Responder {
+//     match send_resume::send_email_with_resume(&req.email).await {
+//         Ok(_) => HttpResponse::Ok().body("Resume sent successfully"),
+//         Err(_) => HttpResponse::InternalServerError().body("Error sending resume"),
+//     }
+// }
 
 
 #[actix_web::main]
@@ -54,7 +54,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .wrap(cors)
             .route("/send-email", web::post().to(send_contact_email))
-            .route("/send-resume", web::post().to(send_resume))
+            //.route("/send-resume", web::post().to(send_resume))
     })
     .bind("0.0.0.0:8081")?
     .run()
