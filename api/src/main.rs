@@ -19,10 +19,10 @@ struct ContactForm {
     user_message: String,
 }
 
-#[derive(Deserialize)]
-struct ResumeRequest {
-    email: String
-}
+// #[derive(Deserialize)]
+// struct ResumeRequest {
+//     email: String
+// }
 
 async fn send_contact_email(form: web::Json<ContactForm>) -> impl Responder {
     match send_mail::send_email(&form.user_email, &form.user_name, &form.user_message).await {
