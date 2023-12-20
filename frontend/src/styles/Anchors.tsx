@@ -11,15 +11,15 @@ export const StyledNav = styled.nav`
 export const StyledAnchorLink = styled.a`
   display: block;
   position: relative;
-  color: ${theme.colors.TEXT_GRAY};
+  color: ${theme.colors.MUTED_BLUE};
   padding: 4px;
   margin: 4px 0;
   text-decoration: none;
   &.active {
-    color: ${theme.colors.DARK_RED};
+    color: ${theme.colors.WHITE};
     &:before {
       content: "";
-      background: ${theme.colors.DARK_RED};
+      background: ${theme.colors.WHITE};
       position: absolute;
       bottom: 0;
       left: 0;
@@ -29,6 +29,6 @@ export const StyledAnchorLink = styled.a`
     }
   }
   &:hover, &:focus, &:active {
-    color: ${theme.colors.DARK_RED}; // for hover, focus, active state
+    color: ${theme.colors.WHITE}; 
   }
 `;

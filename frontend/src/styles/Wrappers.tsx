@@ -6,12 +6,9 @@ export const CenteredSection = styled.section`
   display: flex; 
   flex-direction: column; 
   justify-content: center; 
-  background: #ffffff; 
+  background: ${theme.colors.DARK_BLUE};
   color: #333333; 
   text-align: center; 
-  &:nth-of-type(odd) { 
-    background: #f7f7f7;
-  }
   h2 {
     margin: 0 0 2rem 0; 
     font-size: 2.5rem; 
@@ -24,16 +21,25 @@ export const CenteredSection = styled.section`
   }
 `;
 
+export const LeftToRightSection = styled.section`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch; 
+  justify-content: flex-start; 
+  background: ${theme.colors.DARK_BLUE};
+  color: #333333;
+  text-align: left;
+  width: 100%;
+`;
+
 export const StandardSection = styled.section`
   min-height: 100vh; 
   display: flex; 
   flex-direction: column; 
-  background: #ffffff; 
+  background: ${theme.colors.DARK_BLUE};
   color: #333333; 
   text-align: center; 
-  &:nth-of-type(odd) { 
-    background: #f7f7f7;
-  }
   h2 {
     margin: 0 0 2rem 0; 
     font-size: 2.5rem; 
@@ -52,8 +58,8 @@ export const NavBarWrapper = styled.div`
   width: 100%;
   z-index: 1000;
   text-align: left;
-  border-bottom: 2px solid ${theme.colors.HARD_YELLOW};
-  background: ${theme.colors.LIGHTER_GRAY};
+  border-bottom: 2px solid ${theme.colors.MUTED_BLUE};
+  background: ${theme.colors.DARK_BLUE};
   display: grid;
   grid-template-columns: 1fr auto 1fr;
 `;
@@ -63,9 +69,8 @@ export const ExperienceWrapper = styled.div`
 `;
 
 export const HomeWrapper = styled.div`
-  margin-top: -20vh;
-  position: relative;
-  justify-content: center; 
+  display: flex;
+  width: 100%;
 `;
 
 export const SkillsWrapper = styled.div`

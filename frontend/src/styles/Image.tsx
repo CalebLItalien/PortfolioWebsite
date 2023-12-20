@@ -8,7 +8,7 @@ export const CompanyImage = styled.img`
 `;
 
 export const HeadShotImage = styled.img`
-  height: 50vh;
-  width: auto;
+  height: auto;
+  width: 100%;
   max-widh: 100%;
 `;

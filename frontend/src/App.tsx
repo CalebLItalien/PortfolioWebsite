@@ -8,7 +8,7 @@ import Skills from "./components/sections/Skills";
 import Certifications from "./components/sections/Certifications";
 import Contact from "./components/sections/Contact";
 import Experience from "./components/sections/Experience";
-import { CenteredSection, StandardSection } from "./styles/Wrappers";
+import { CenteredSection, LeftToRightSection, StandardSection } from "./styles/Wrappers";
 
 const AppWrapper = styled.div`
   height: 100vh;
@@ -34,9 +34,9 @@ export function App() {
     <AppWrapper>
       <NavigationBar onHeightChange={setNavBarHeight} 
           scrollToSection={scrollToSection}/>
-      <CenteredSection id="home">
+      <LeftToRightSection id="home">
         <Home/>
-      </CenteredSection>
+      </LeftToRightSection>
       <StandardSection id="experience">
         <Experience/>
       </StandardSection>

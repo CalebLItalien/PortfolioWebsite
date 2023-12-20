@@ -25,23 +25,34 @@ const Home: React.FC = () => {
 
   return (
     <HomeWrapper>
-      <HeadShotImage src={headshot} alt="headshot"/>
-      <HeadshotUnderline width={textWidth} />
-      <Bio ref={textRef}> {bio} </Bio>
-      <MarginButtonWrapper>
-      <SocialButton
-        href={githubLink}
-        target="_blank"
-        data-tooltip="GitHub" 
-        style={{ backgroundImage: `url(${githubImage})` }}
-        ></SocialButton>
-      <SocialButton
-        href={linkedinLink}
-        target="_blank"
-        data-tooltip="LinkedIn" 
-        style={{ backgroundImage: `url(${linkedinImage})` }}
-      ></SocialButton>
-      </MarginButtonWrapper>
+      <div style={{flex: 1, 
+                   maxWidth: '33%',
+                   display: 'flex',
+                   flexDirection: 'column',
+                   justifyContent: 'flex-end'}}>
+        <HeadShotImage src={headshot} alt="headshot"/>
+      </div>
+      <div style={{flex: 2, 
+                   maxWidth: '66%',
+                   paddingTop: '5vh',
+                   paddingLeft: '5vh',
+                   paddingRight: '5vh',}}>
+        <Bio ref={textRef}> {bio} </Bio>
+        <MarginButtonWrapper>
+          <SocialButton
+            href={githubLink}
+            target="_blank"
+            data-tooltip="GitHub" 
+            style={{ backgroundImage: `url(${githubImage})` }}
+            ></SocialButton>
+          <SocialButton
+            href={linkedinLink}
+            target="_blank"
+            data-tooltip="LinkedIn" 
+            style={{ backgroundImage: `url(${linkedinImage})` }}
+          ></SocialButton>
+        </MarginButtonWrapper>
+      </div>
     </HomeWrapper>
   );
 };
