@@ -3,10 +3,12 @@ import { useHeadshot } from '../../hooks/useHeadshot';
 import { useSocialButtons } from '../../hooks/useSocialButtons';
 import { useBio } from '../../hooks/useBio';
 import { MarginButtonWrapper, SocialButton } from '../../styles/Button';
-import { HeadshotUnderline } from '../../styles/Underline';
-import { Bio } from '../../styles/Bio';
+import { Bio, BioTabbed } from '../../styles/Bio';
 import { HeadShotImage } from '../../styles/Image';
-import { HomeWrapper } from '../../styles/Wrappers';
+import { HeadshotWrapper, HomeContentWrapper, HomeWrapper } from '../../styles/Wrappers';
+import Welcome from '../../styles/Welcome';
+import { useName } from '../../hooks/useName';
+import { WelcomeUnderline } from '../../styles/Underline';
 
 const Home: React.FC = () => {
   const headshot = useHeadshot();
@@ -16,28 +18,39 @@ const Home: React.FC = () => {
   const [linkedinLink, linkedinImage] = [socialButtons[1].link, socialButtons[1].imageUrl];
   const textRef = useRef<HTMLParagraphElement>(null);
   const [textWidth, setTextWidth] = useState(0);
-
+  const name = useName();
+  
   useEffect(() => {
     if (textRef.current) {
       setTextWidth(textRef.current.offsetWidth);
     }
   }, [bio]);
 
+  useEffect(() => {
+    const updateWidth = () => {
+      if (textRef.current) {
+        setTextWidth(textRef.current.offsetWidth);
+      }
+    };
+    updateWidth();
+    window.addEventListener('resize', updateWidth);
+    
+    return () => window.removeEventListener('resize', updateWidth);
+  }, [bio])
+
   return (
     <HomeWrapper>
-      <div style={{flex: 1, 
-                   maxWidth: '33%',
-                   display: 'flex',
-                   flexDirection: 'column',
-                   justifyContent: 'flex-end'}}>
-        <HeadShotImage src={headshot} alt="headshot"/>
-      </div>
-      <div style={{flex: 2, 
-                   maxWidth: '66%',
-                   paddingTop: '5vh',
-                   paddingLeft: '5vh',
-                   paddingRight: '5vh',}}>
-        <Bio ref={textRef}> {bio} </Bio>
+        <HeadshotWrapper>
+          <HeadShotImage src={headshot} alt="headshot"/>
+        </HeadshotWrapper>
+      <HomeContentWrapper>
+        <Welcome>Hi there! My name is {name}.</Welcome>
+        <WelcomeUnderline width={textWidth}></WelcomeUnderline>
+        <Bio ref={textRef}>
+          <BioTabbed>
+            {bio} 
+          </BioTabbed>
+        </Bio>
         <MarginButtonWrapper>
           <SocialButton
             href={githubLink}
@@ -52,7 +65,7 @@ const Home: React.FC = () => {
             style={{ backgroundImage: `url(${linkedinImage})` }}
           ></SocialButton>
         </MarginButtonWrapper>
-      </div>
+      </HomeContentWrapper>
     </HomeWrapper>
   );
 };

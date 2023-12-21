@@ -29,7 +29,6 @@ export function NavigationBar({ onHeightChange, scrollToSection }: NavigationBar
 
   return (
       <NavBarWrapper ref={navBarRef}>
-          <StyledHeading>{name}</StyledHeading>
           <StyledNav>
             <StyledAnchorLink onClick={() => scrollToSection('home')}>
               Home

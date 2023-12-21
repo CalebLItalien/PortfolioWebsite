@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from "../theme";
 
 export const Underline = styled.div`
   height: 2px; 
@@ -13,13 +14,13 @@ type HeadshotUnderlineProps = {
     width: number;
   };
   
-export const HeadshotUnderline = styled.div<HeadshotUnderlineProps>`
-    height: 2px; 
-    background-color: black; 
+export const WelcomeUnderline = styled.div<HeadshotUnderlineProps>`
+    height: 1px; 
     width: ${props => `${props.width}px`};  
     margin-left: auto;
     margin-right: auto;
     margin-top: -5px;
     border-radius: 5px;
+    background-color: ${theme.colors.MUTED_BLUE}
 `;
 

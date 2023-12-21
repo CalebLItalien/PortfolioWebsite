@@ -57,11 +57,12 @@ export const NavBarWrapper = styled.div`
   top: 0;
   width: 100%;
   z-index: 1000;
-  text-align: left;
+  text-align: center;
   border-bottom: 2px solid ${theme.colors.MUTED_BLUE};
   background: ${theme.colors.DARK_BLUE};
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ExperienceWrapper = styled.div`
@@ -92,4 +93,22 @@ export const ResumeWrapper = styled.div`
 export const ContactWrapper = styled.div`
   position: relative;
 `;
+
+export const HeadshotWrapper = styled.div`
+  flex: 1;
+  max-width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+`;
+
+export const HomeContentWrapper = styled.div`
+  flex: 2;
+  max-width: 66%;
+  padding-top: 20vh;
+  padding-left: 15vh;
+  padding-right: 15vh;
+`;
+
+
 

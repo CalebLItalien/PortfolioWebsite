@@ -36,8 +36,8 @@ export const SkillsButtonWrapper: React.CSSProperties = {
 
 export const SocialButton = styled.a`
   display: inline-block;
-  width: 32px;
-  height: 32px;
+  width: 60px;
+  height: 60px;
   margin: 0 10px; 
   background-size: cover;
   background-repeat: no-repeat;
