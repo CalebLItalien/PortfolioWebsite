@@ -43,12 +43,13 @@ export const SocialButton = styled.a`
   background-repeat: no-repeat;
   background-position: center center;
   position: relative; 
+  transition: transform 0.2s ease-in-out; 
 
   ::before {
     content: attr(data-tooltip); 
     position: absolute;
     background-color: rgba(0, 0, 0, 0.8); 
-    color: white; =
+    color: white; 
     padding: 4px 8px; 
     border-radius: 4px;
     top: 100%; 
@@ -58,7 +59,10 @@ export const SocialButton = styled.a`
     transition: opacity 0.2s ease-in-out;
   }
 
-  &:hover::before {
-    opacity: 1; 
+  &:hover {
+    transform: scale(1.1);
+    &:before {
+      opacity: 1;
+    }
   }
 `;
