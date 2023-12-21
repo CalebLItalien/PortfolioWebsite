@@ -9,6 +9,7 @@ import { HeadshotWrapper, HomeContentWrapper, HomeWrapper } from '../../styles/W
 import Welcome from '../../styles/Welcome';
 import { useName } from '../../hooks/useName';
 import { WelcomeUnderline } from '../../styles/Underline';
+import TypingAnimation from '../TypingAnimation';
 
 const Home: React.FC = () => {
   const headshot = useHeadshot();
@@ -19,7 +20,8 @@ const Home: React.FC = () => {
   const textRef = useRef<HTMLParagraphElement>(null);
   const [textWidth, setTextWidth] = useState(0);
   const name = useName();
-  
+  const welcomeText = `Hi there! My name is ${name}.`;
+
   useEffect(() => {
     if (textRef.current) {
       setTextWidth(textRef.current.offsetWidth);
@@ -44,7 +46,9 @@ const Home: React.FC = () => {
           <HeadShotImage src={headshot} alt="headshot"/>
         </HeadshotWrapper>
       <HomeContentWrapper>
-        <Welcome>Hi there! My name is {name}.</Welcome>
+        <Welcome>
+          <TypingAnimation text={welcomeText} speed={100}/>
+        </Welcome>
         <WelcomeUnderline width={textWidth}></WelcomeUnderline>
         <Bio ref={textRef}>
           <BioTabbed>
