@@ -21,8 +21,10 @@ const AppWrapper = styled.div`
 export function App() {
   const [navBarHeight, setNavBarHeight] = useState(0);
   const [activeSection, setActiveSection] = useState('');
+  const [isProgrammaticScroll, setIsProgrammaticScroll] = useState(false);
 
   const monitorScroll = () => {
+    if (isProgrammaticScroll) return;
     const sections = ['home', 'experience', 'skills', 'projects', 'resume', 'contact'];
     const offsets = sections.map(id => {
       const element = document.getElementById(id);
@@ -41,6 +43,7 @@ export function App() {
     }
   };
   useEffect(() => {
+    monitorScroll();
     window.addEventListener('scroll', monitorScroll);
     return () => {
       window.removeEventListener('scroll', monitorScroll);
@@ -48,6 +51,7 @@ export function App() {
   }, [activeSection]);
 
   const scrollToSection = (sectionId: string) => {
+    setIsProgrammaticScroll(true);
     setActiveSection(sectionId);
     const section = document.getElementById(sectionId);
     if (section) {
@@ -56,6 +60,9 @@ export function App() {
         behavior: 'smooth'
       });
     }
+    setTimeout(() => {
+      setIsProgrammaticScroll(false);
+    }, 1000)
   };
   return (
     <AppWrapper>
