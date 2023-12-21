@@ -43,12 +43,19 @@ export function App() {
     }
   };
   useEffect(() => {
-    monitorScroll();
-    window.addEventListener('scroll', monitorScroll);
+    monitorScroll(); // for when the component initially mounts
+  }, [])
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!isProgrammaticScroll) {
+        monitorScroll();
+      }
+    }
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener('scroll', monitorScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, [activeSection]);
+  }, [isProgrammaticScroll]);
 
   const scrollToSection = (sectionId: string) => {
     setIsProgrammaticScroll(true);
