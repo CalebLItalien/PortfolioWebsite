@@ -7,9 +7,10 @@ import { StyledNav, StyledAnchorLink } from "../styles/Anchors";
 interface NavigationBarProps {
   onHeightChange: (height: number) => void;
   scrollToSection: (sectionId: string) => void;
+  activeSection: string;
 }
 
-export function NavigationBar({ onHeightChange, scrollToSection }: NavigationBarProps): JSX.Element {
+export function NavigationBar({ onHeightChange, scrollToSection, activeSection }: NavigationBarProps): JSX.Element {
   const navBarRef = useRef<HTMLDivElement>(null);
   const name = useName();
 
@@ -30,25 +31,31 @@ export function NavigationBar({ onHeightChange, scrollToSection }: NavigationBar
   return (
       <NavBarWrapper ref={navBarRef}>
           <StyledNav>
-            <StyledAnchorLink onClick={() => scrollToSection('home')}>
+            <StyledAnchorLink onClick={() => scrollToSection('home')}
+                              className={activeSection === 'home' ? 'active' : ''}>
               Home
             </StyledAnchorLink>
-            <StyledAnchorLink onClick={() => scrollToSection('experience')}>
+            <StyledAnchorLink onClick={() => scrollToSection('experience')}
+                              className={activeSection === 'experience' ? 'active' : ''}>
               Experience
             </StyledAnchorLink>
-            <StyledAnchorLink onClick={() => scrollToSection('skills')}>
+            <StyledAnchorLink onClick={() => scrollToSection('skills')}
+                              className={activeSection === 'skills' ? 'active' : ''}>
               Skills
             </StyledAnchorLink>
-            <StyledAnchorLink onClick={() => scrollToSection('projects')}>
+            <StyledAnchorLink onClick={() => scrollToSection('projects')}
+                              className={activeSection === 'projects' ? 'active' : ''}>
               Projects
             </StyledAnchorLink>
-            <StyledAnchorLink onClick={() => scrollToSection('resume')}>
+            <StyledAnchorLink onClick={() => scrollToSection('resume')}
+                              className={activeSection === 'resume' ? 'active' : ''}>
               Resume
             </StyledAnchorLink>
             {/* <StyledAnchorLink onClick={() => scrollToSection('certifications')}>
               Certifications
             </StyledAnchorLink> */}
-            <StyledAnchorLink onClick={() => scrollToSection('contact')}>
+            <StyledAnchorLink onClick={() => scrollToSection('contact')}
+                              className={activeSection === 'contact' ? 'active' : ''}>
               Contact
             </StyledAnchorLink>
           </StyledNav>
