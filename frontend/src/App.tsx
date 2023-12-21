@@ -28,7 +28,7 @@ export function App() {
     const sections = ['home', 'experience', 'skills', 'projects', 'resume', 'contact'];
     const offsets = sections.map(id => {
       const element = document.getElementById(id);
-      if (element) return window.scrollY + element.getBoundingClientRect().top
+      if (element) return window.scrollY + element.getBoundingClientRect().top;
       return null;
     });
     const activeIndex = offsets.findIndex((offset, index) => {
@@ -42,20 +42,20 @@ export function App() {
       setActiveSection(newActiveSection);
     }
   };
+
   useEffect(() => {
     monitorScroll(); // for when the component initially mounts
-  }, [])
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
-      if (!isProgrammaticScroll) {
-        monitorScroll();
-      }
+      monitorScroll();
     }
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [isProgrammaticScroll]);
+  }, [isProgrammaticScroll, monitorScroll]);
 
   const scrollToSection = (sectionId: string) => {
     setIsProgrammaticScroll(true);
@@ -69,8 +69,9 @@ export function App() {
     }
     setTimeout(() => {
       setIsProgrammaticScroll(false);
-    }, 1000)
+    }, 1000);
   };
+
   return (
     <AppWrapper>
       <NavigationBar onHeightChange={setNavBarHeight} 
@@ -97,7 +98,6 @@ export function App() {
       <CenteredSection id="contact">
         <Contact/>
       </CenteredSection>
-      
     </AppWrapper>
   );
 }
