@@ -13,10 +13,12 @@ export const HeadShotImage = styled.img`
   max-width: 100%;
   border-radius: 15px;
   object-fit: cover;
-  box-shadow: 0px 4px 15px 5px rgba(0, 0, 0, 0.6); 
-  margin-bottom: 15px;
+  box-shadow: 0px 8px 20px 5px rgba(0, 0, 0, 0.4); 
+  margin-bottom: 10vh;
   margin-left: 15px;
-  transition: box-shadow 0.3s ease; 
+  transition: box-shadow 0.3s ease;
+  align-self: flex-end;
+  margin-right: -4vw;
 
   &:hover {
     box-shadow: none;

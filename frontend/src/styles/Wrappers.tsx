@@ -64,7 +64,7 @@ export const NavBarWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 5vh;
-  box-shadow: 0px 4px 15px 5px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 8px 40px 5px rgba(0, 0, 0, 0.4);
 `;
 
 export const ExperienceWrapper = styled.div`

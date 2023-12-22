@@ -19,14 +19,15 @@ export const StyledAnchorLink = styled.a`
   &.active {
     color: ${theme.colors.WHITE};
     &:before {
+      box-sizing: border-box;
       content: "";
       background: ${theme.colors.WHITE};
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 4px;
-      border-radius: 0 0 8px 8px;
+      height: 1px;
+      border-radius: 8px 8px 8px 8px;
     }
   }
   &:hover, &:focus, &:active {
