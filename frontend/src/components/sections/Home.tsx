@@ -6,7 +6,7 @@ import { MarginButtonWrapper, SocialButton } from '../../styles/Button';
 import { Bio, BioTabbed } from '../../styles/Bio';
 import { HeadShotImage } from '../../styles/Image';
 import { HeadshotWrapper, HomeContentWrapper, HomeWrapper } from '../../styles/Wrappers';
-import Welcome from '../../styles/Welcome';
+import { Welcome } from '../../styles/Headers';
 import { useName } from '../../hooks/useName';
 import { WelcomeUnderline } from '../../styles/Underline';
 import TypingAnimation from '../TypingAnimation';

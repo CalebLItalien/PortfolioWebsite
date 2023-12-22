@@ -11,7 +11,7 @@ export const StyledNav = styled.nav`
 export const StyledAnchorLink = styled.a`
   display: block;
   position: relative;
-  color: ${theme.colors.MUTED_BLUE};
+  color: ${theme.colors.LIGHTEST_ORANGE};
   padding: 4px;
   margin: 4px 0;
   text-decoration: none;

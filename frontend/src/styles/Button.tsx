@@ -66,3 +66,21 @@ export const SocialButton = styled.a`
     }
   }
 `;
+
+export const SubmitButton = styled.button`
+  border-radius: 5px;
+  background-color: #1E88E5;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-bottom: 5vh;
+  color: white;
+  border: none;
+  min-height: 4vh;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+    &:before {
+      opacity: 1;
+    }
+  }
+`;

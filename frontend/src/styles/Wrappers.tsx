@@ -21,6 +21,15 @@ export const CenteredSection = styled.section`
   }
 `;
 
+export const ContactSection = styled.section`
+  min-height: 60vh; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  background: ${theme.colors.DARK_BLUE};
+  position: relative;
+`;
+
 export const LeftToRightSection = styled.section`
   min-height: 100vh;
   display: flex;
@@ -58,7 +67,7 @@ export const NavBarWrapper = styled.div`
   width: 100%;
   z-index: 1000;
   text-align: center;
-  border-bottom: 2px solid ${theme.colors.MUTED_BLUE};
+  border-bottom: 2px solid ${theme.colors.LIGHTEST_ORANGE};
   background: ${theme.colors.DARK_BLUE};
   display: flex;
   justify-content: center;
@@ -93,7 +102,7 @@ export const ResumeWrapper = styled.div`
 `;
 
 export const ContactWrapper = styled.div`
-  position: relative;
+  width: 100%;
 `;
 
 export const HeadshotWrapper = styled.div`

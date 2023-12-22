@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { theme } from "../theme";
 
 export const Bio = styled.p`
-  color: ${theme.colors.MUTED_BLUE};
+  color: ${theme.colors.LIGHTEST_ORANGE};
   font-size: 1.2rem;
   line-height: 2;
   margin-top: 5vh;

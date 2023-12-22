@@ -12,7 +12,9 @@ export const theme = {
       TEXT_GRAY: "#222222",
       WHITE: "#FFFFFF",
       MUTED_BLUE: "#ACC6DC",
-      DARK_BLUE: "#232A34"
+      // DARK_BLUE: "#232A34",
+      DARK_BLUE: "#161a21",
+      LIGHTEST_ORANGE: "#D1BEBA",
     },
     fontSizes: {
       sm: "16px",

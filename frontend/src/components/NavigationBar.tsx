@@ -1,7 +1,6 @@
 import { useRef, useEffect, ReactElement } from "react";
 import { useName } from "../hooks/useName";
 import { NavBarWrapper } from "../styles/Wrappers";
-import { StyledHeading } from "../styles/NameHeader";
 import { StyledNav, StyledAnchorLink } from "../styles/Anchors";
 
 interface NavigationBarProps {

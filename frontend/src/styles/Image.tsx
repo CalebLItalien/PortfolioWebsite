@@ -24,3 +24,10 @@ export const HeadShotImage = styled.img`
     box-shadow: none;
   }
 `;
+
+export const PDFImage = styled.img`
+  height: 60vh;
+  max-width: 100%
+  display: block;
+  margin: 0 auto;
+`

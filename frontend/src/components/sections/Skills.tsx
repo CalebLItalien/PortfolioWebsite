@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SkillsWrapper, SkillsRatingsWrapper } from '../../styles/Wrappers';
-import { RoundedRectangle } from '../../styles/Frame';
+import { SkillsFrame } from '../../styles/Frame';
 import { Title } from '../../styles/Title';
 import { Underline } from '../../styles/Underline';
 import { ButtonWrapper, 
@@ -36,7 +36,7 @@ const Skills: React.FC = () => {
     <SkillsWrapper>
       <Title>Skills</Title>
       <Underline />
-      <RoundedRectangle>
+      <SkillsFrame>
         <ButtonWrapper style={SkillsButtonWrapper}>
           <button style={TopSkillsButton} 
             onClick={() => handleButtonClick('Languages')}>
@@ -54,7 +54,7 @@ const Skills: React.FC = () => {
         <SkillsRatingsWrapper key={selectedSkill}>
           {renderSkillsRatings()}
         </SkillsRatingsWrapper>
-      </RoundedRectangle>
+      </SkillsFrame>
     </SkillsWrapper>
   );
 };

@@ -8,7 +8,10 @@ import Skills from "./components/sections/Skills";
 // import Certifications from "./components/sections/Certifications";
 import Contact from "./components/sections/Contact";
 import Experience from "./components/sections/Experience";
-import { CenteredSection, LeftToRightSection, StandardSection } from "./styles/Wrappers";
+import { CenteredSection, 
+  ContactSection, 
+  LeftToRightSection, 
+  StandardSection } from "./styles/Wrappers";
 
 const AppWrapper = styled.div`
   height: 100vh;
@@ -89,15 +92,15 @@ export function App() {
       <StandardSection id="projects">
         <Projects/>
       </StandardSection>
-      <CenteredSection id="resume">
+      <LeftToRightSection id="resume">
         <Resume/>
-      </CenteredSection>
+      </LeftToRightSection>
       {/* <CenteredSection id="certifications">
         <Certifications/>
       </CenteredSection> */}
-      <CenteredSection id="contact">
+      <ContactSection id="contact">
         <Contact/>
-      </CenteredSection>
+      </ContactSection>
     </AppWrapper>
   );
 }

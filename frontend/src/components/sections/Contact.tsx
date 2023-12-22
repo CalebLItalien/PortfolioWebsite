@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import { ContactWrapper } from '../../styles/Wrappers';
+import { ContactMe } from '../../styles/Headers';
+import { ContactFrame } from '../../styles/Frame';
+import { StyledForm,
+         StyledInput,
+         StyledTextArea } from '../../styles/Form';
+import { SubmitButton } from '../../styles/Button';
 
 const Contact: React.FC = () => {
   const [name, setName] = useState('');
@@ -44,27 +50,29 @@ const Contact: React.FC = () => {
   };
   return (
     <ContactWrapper>
-      <h1>Contact Me Section</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Your Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="Your Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <textarea
-          placeholder="Your Message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <button type="submit">Send Message</button>
-      </form>
+      <ContactFrame>
+        <ContactMe>Contact Me</ContactMe>
+        <StyledForm onSubmit={handleSubmit}>
+          <StyledInput
+            type="text"
+            placeholder="Your Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <StyledInput
+            type="email"
+            placeholder="Your Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <StyledTextArea
+            placeholder="Your Message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <SubmitButton type="submit">Submit</SubmitButton>
+        </StyledForm>
+      </ContactFrame>
     </ContactWrapper>
   );
 };

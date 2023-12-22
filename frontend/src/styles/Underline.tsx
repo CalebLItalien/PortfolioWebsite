@@ -21,6 +21,6 @@ export const WelcomeUnderline = styled.div<HeadshotUnderlineProps>`
     margin-right: auto;
     margin-top: -5px;
     border-radius: 5px;
-    background-color: ${theme.colors.MUTED_BLUE}
+    background-color: ${theme.colors.LIGHTEST_ORANGE}
 `;
 
