@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ContactWrapper } from '../../styles/Wrappers';
 import { ContactMe } from '../../styles/Headers';
 import { ContactFrame } from '../../styles/Frame';
@@ -6,17 +6,61 @@ import { StyledForm,
          StyledInput,
          StyledTextArea } from '../../styles/Form';
 import { SubmitButton } from '../../styles/Button';
+import Alert from '../Alert';
 
 const Contact: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [alertMessage, setAlertMessage] = useState('');
+  const [startFadeOut, setStartFadeOut] = useState(false);
+
+  const showAlert = (message: string) => {
+    setAlertMessage(message);
+    setStartFadeOut(false);
+  }
+
+  const closeAlert = () => {
+    setAlertMessage('');
+    setStartFadeOut(false);
+  }
+
+  useEffect(() => {
+    let fadeOutTimer: NodeJS.Timeout | number;
+    let removeAlertTimer: NodeJS.Timeout | number;
+  
+    if (alertMessage) {
+      fadeOutTimer = setTimeout(() => {
+        setStartFadeOut(true);
+      }, 2000);
+  
+      removeAlertTimer = setTimeout(() => {
+        setAlertMessage('');
+        setStartFadeOut(false); 
+      }, 3000);
+    }
+  
+    return () => {
+      clearTimeout(fadeOutTimer);
+      clearTimeout(removeAlertTimer);
+    };
+  }, [alertMessage]);
+  
+  const validEmail = (email: string) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    if (!validEmail(email)) {
+      showAlert('Please enter a valid email address.');
+      return;
+    }
+
     if (!name || !email|| !message) {
-      alert('Please fill in all fields.');
+      showAlert('Please fill in all fields.');
       return;
     }
 
@@ -36,16 +80,16 @@ const Contact: React.FC = () => {
       });
       
       if (response.ok) {
-        alert('Message sent successfully!')
+        showAlert('Message sent successfully!')
         setName('');
         setEmail('');
         setMessage('');
       } else {
-        alert('Failed to send message. Please try again.');
+        showAlert('Failed to send message. Please try again.');
       }
     } catch (error) {
       console.error('Error: ', error);
-      alert('An error occurred. Please try again at a later date.');
+      showAlert('An error occurred. Please try again at a later date.');
     }
   };
   return (
@@ -60,7 +104,7 @@ const Contact: React.FC = () => {
             onChange={(e) => setName(e.target.value)}
           />
           <StyledInput
-            type="email"
+            type="text"
             placeholder="Your Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -73,6 +117,7 @@ const Contact: React.FC = () => {
           <SubmitButton type="submit">Submit</SubmitButton>
         </StyledForm>
       </ContactFrame>
+      {alertMessage && <Alert message={alertMessage} fadeOut={startFadeOut} onClose={closeAlert} />}
     </ContactWrapper>
   );
 };
