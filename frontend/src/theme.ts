@@ -16,7 +16,8 @@ export const theme = {
       DARK_BLUE: "#161a21",
       LIGHTEST_ORANGE: "#D1BEBA",
       BRIGHT_RED: "#FC0505",
-      BRIGHT_GREEN: "#74FC05"
+      BRIGHT_GREEN: "#74FC05",
+      LIGHT_BLUE: "#1E88E5"
     },
     fontSizes: {
       sm: "16px",

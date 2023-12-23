@@ -13,24 +13,31 @@ export const ButtonWrapper = styled.div`
   border-right: 1px solid ${theme.colors.LIGHTEST_ORANGE};
 `;
 
-export const SkillsButton = {
-  flex: '1',
-  border: 'none',
-  background: 'transparent',
-  color: theme.colors.LIGHTEST_ORANGE,
-};
+interface SkillsButtonProps {
+  isSelected: boolean;
+}
 
-export const TopSkillsButton = {
-  ...SkillsButton,
-  borderRadius: '50px 0 0 0',
-  color: theme.colors.LIGHTEST_ORANGE,
-};
+export const SkillsButton = styled.button<SkillsButtonProps>`
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: ${theme.colors.LIGHTEST_ORANGE};
+  background-color: ${props => props.isSelected ? 
+                      theme.colors.LIGHT_BLUE : 
+                      theme.colors.DARK_BLUE};
+  transition: font-size 0.2s ease-in-out;
+  &:hover {
+    font-size: 1.2em;
+  }
+`;
 
-export const BottomSkillsButton = {
-  ...SkillsButton,
-  borderRadius: '0 0 0 50px',
-  color: theme.colors.LIGHTEST_ORANGE,
-};
+export const TopSkillsButton = styled(SkillsButton)`
+  border-radius: 50px 0 0 0;
+`;
+
+export const BottomSkillsButton = styled(SkillsButton)`
+  border-radius: 0 0 0 50px;
+`;
 
 export const SkillsButtonWrapper: React.CSSProperties = {
   flexDirection: 'column',
@@ -74,7 +81,7 @@ export const SocialButton = styled.a`
 
 export const SubmitButton = styled.button`
   border-radius: 5px;
-  background-color: #1E88E5;
+  background-color: ${theme.colors.LIGHT_BLUE};
   margin-left: 5vw;
   margin-right: 5vw;
   margin-bottom: 5vh;

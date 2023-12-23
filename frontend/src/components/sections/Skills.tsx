@@ -13,10 +13,6 @@ import { useLanguages } from '../../hooks/useLanguages';
 import { useTechnologies } from '../../hooks/useTechnologies';
 import SkillsRatings from '../SkillsRatings';
 
-const selectedButton = {
-  color: 'white',
-}
-
 const Skills: React.FC = () => {
   const [selectedSkill, setSelectedSkill] = useState<string>('Languages');
 
@@ -42,18 +38,21 @@ const Skills: React.FC = () => {
       <Underline />
       <SkillsFrame>
         <ButtonWrapper style={SkillsButtonWrapper}>
-          <button style={TopSkillsButton} 
+          <TopSkillsButton
+            isSelected={selectedSkill === 'Languages'}
             onClick={() => handleButtonClick('Languages')}>
             Languages
-          </button>
-          <button style={SkillsButton} 
+          </TopSkillsButton>
+          <SkillsButton
+            isSelected={selectedSkill === 'Frameworks'} 
             onClick={() => handleButtonClick('Frameworks')}>
             Frameworks
-          </button>
-          <button style={BottomSkillsButton} 
+          </SkillsButton>
+          <BottomSkillsButton
+            isSelected={selectedSkill === 'Technologies'} 
             onClick={() => handleButtonClick('Technologies')}>
             Technologies
-          </button>
+          </BottomSkillsButton>
         </ButtonWrapper>
         <SkillsRatingsWrapper key={selectedSkill}>
           {renderSkillsRatings()}
