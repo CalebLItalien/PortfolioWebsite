@@ -7,10 +7,10 @@ import {
   DropdownContent, 
   DropdownOption, 
 } from '../../styles/Dropdown';
-import { Title } from '../../styles/Title';
+import { BasicTitle } from '../../styles/Headers';
 import { Underline } from '../../styles/Underline';
-import { CompanyImage } from '../../styles/Image';
 import { ExperienceWrapper } from '../../styles/Wrappers';
+import { ProjectDescription } from '../../styles/Text';
 
 const Projects: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -36,20 +36,15 @@ const Projects: React.FC = () => {
 
   return (
     <ExperienceWrapper>
-      <Title>Projects</Title>
+      <BasicTitle>Projects</BasicTitle>
       <Underline />
       <DropdownWrapper>
         <DropdownButton onClick={toggleDropdown}>{selectedOption}</DropdownButton>
         {showDropdown && (
           <DropdownContent show={showDropdown}>
             {projectNames.map((projectName, index) => {
-              const imageProject = projectName.toLowerCase().trim().replace(/\s/g, '');
               return (
                 <DropdownOption key={index} onClick={() => selectOption(index, projectName)}>
-                <CompanyImage
-                  src={require(`../../assets/companies/${imageProject}.png`).default}
-                  alt={projectName}
-                />
                 {projectName}
               </DropdownOption>
               );
@@ -57,7 +52,7 @@ const Projects: React.FC = () => {
           </DropdownContent>
         )}
       </DropdownWrapper>
-      {info && <p>{info}</p>}
+      {info && <ProjectDescription>{info}</ProjectDescription>}
     </ExperienceWrapper>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-//import { Icon } from 'devicon-react';
+import { theme } from "../theme";
 
 interface SectionProps {
   title: string;
@@ -12,11 +12,13 @@ const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
 `;
 
 const SectionTitle = styled.h2`
   margin-bottom: 10px;
+  color: ${theme.colors.LIGHTEST_ORANGE};
+  font-size: 2rem;
+  font-weight: 400;
 `;
 
 const IconContainer = styled.div`

@@ -3,11 +3,12 @@ import { ResumeWrapper } from '../../styles/Wrappers';
 import { PDFImage } from '../../styles/Image';
 import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
 import { PDFImageFrame } from '../../styles/Frame';
+import { DownloadResume } from '../../styles/Headers';
 
 GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.269/pdf.worker.min.mjs';
 
 const Resume: React.FC = () => {
-  const [email, setEmail] = useState('');
+  // const [email, setEmail] = useState('');
   const [pdfImage, setPdfImage] = useState<string>('');
 
   useEffect(() => {
@@ -62,6 +63,9 @@ const Resume: React.FC = () => {
 
   return (
     <ResumeWrapper>
+      <DownloadResume>
+        <p>Click resume to download</p>
+      </DownloadResume>
       <PDFImageFrame>
         {pdfImage && (
           <a href={`${process.env.PUBLIC_URL}/resume.pdf`} download>

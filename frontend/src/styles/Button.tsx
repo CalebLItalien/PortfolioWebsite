@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from "../theme";
 
 export const MarginButtonWrapper = styled.div`
   display: flex;
@@ -7,24 +8,28 @@ export const MarginButtonWrapper = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-display: flex;
-justify-content: center; 
+  display: flex;
+  justify-content: center; 
+  border-right: 1px solid ${theme.colors.LIGHTEST_ORANGE};
 `;
 
 export const SkillsButton = {
   flex: '1',
   border: 'none',
   background: 'transparent',
+  color: theme.colors.LIGHTEST_ORANGE,
 };
 
 export const TopSkillsButton = {
   ...SkillsButton,
   borderRadius: '50px 0 0 0',
+  color: theme.colors.LIGHTEST_ORANGE,
 };
 
 export const BottomSkillsButton = {
   ...SkillsButton,
   borderRadius: '0 0 0 50px',
+  color: theme.colors.LIGHTEST_ORANGE,
 };
 
 export const SkillsButtonWrapper: React.CSSProperties = {

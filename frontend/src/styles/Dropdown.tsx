@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from "../theme";
 
 export const  DropdownWrapper = styled.div`
   position: absolute;
@@ -26,6 +27,7 @@ export const  DropdownContent = styled.div<DropdownProps>`
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  color: ${theme.colors.LIGHTEST_ORANGE};
 `;
 
 export const  DropdownOption = styled.button`

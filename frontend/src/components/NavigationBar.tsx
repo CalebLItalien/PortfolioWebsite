@@ -46,10 +46,10 @@ export function NavigationBar({ onHeightChange, scrollToSection, activeSection }
                               className={activeSection === 'projects' ? 'active' : ''}>
               Projects
             </StyledAnchorLink>
-            <StyledAnchorLink onClick={() => scrollToSection('resume')}
+            {/* <StyledAnchorLink onClick={() => scrollToSection('resume')}
                               className={activeSection === 'resume' ? 'active' : ''}>
               Resume
-            </StyledAnchorLink>
+            </StyledAnchorLink> */}
             {/* <StyledAnchorLink onClick={() => scrollToSection('certifications')}>
               Certifications
             </StyledAnchorLink> */}

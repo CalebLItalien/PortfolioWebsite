@@ -10,13 +10,11 @@ export const SkillsFrame = styled.div`
     width: 80vw;
     height: 40vh;
     min-height: 40vh;
-    background-color: #fff;
+    background-color: ${theme.colors.DARK_BLUE};
     border-radius: 50px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    border: 2px solid #000;
-    padding: 20px;
+    box-shadow: 0 8px 20px 5px rgba(0, 0, 0, 0.4);
     margin: 0;
-    overflow: auto;
+    overflow: hidden;
 `;
 
 export const ContactFrame = styled.div`
@@ -43,7 +41,7 @@ export const ContactFrame = styled.div`
 `;
 
 export const PDFImageFrame = styled.div`
-  max-width: 50%;
+  width: 50%;
   height: auto; 
   margin: 0 auto;
   display: flex;

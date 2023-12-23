@@ -49,10 +49,6 @@ export const StandardSection = styled.section`
   background: ${theme.colors.DARK_BLUE};
   color: #333333; 
   text-align: center; 
-  h2 {
-    margin: 0 0 2rem 0; 
-    font-size: 2.5rem; 
-  }
   p {
     font-size: 1rem; 
     line-height: 1.6; 
@@ -99,6 +95,12 @@ export const ProjectsWrapper = styled.div`
 
 export const ResumeWrapper = styled.div`
   position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  width: 100vw;
 `;
 
 export const ContactWrapper = styled.div`

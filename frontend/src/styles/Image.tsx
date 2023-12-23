@@ -26,7 +26,7 @@ export const HeadShotImage = styled.img`
 `;
 
 export const PDFImage = styled.img`
-  height: 60vh;
+  height: 70vh;
   max-width: 100%
   display: block;
   margin: 0 auto;

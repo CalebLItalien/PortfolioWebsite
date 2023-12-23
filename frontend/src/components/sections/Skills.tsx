@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SkillsWrapper, SkillsRatingsWrapper } from '../../styles/Wrappers';
 import { SkillsFrame } from '../../styles/Frame';
-import { Title } from '../../styles/Title';
+import { BasicTitle } from '../../styles/Headers';
 import { Underline } from '../../styles/Underline';
 import { ButtonWrapper, 
         SkillsButtonWrapper, 
@@ -12,6 +12,10 @@ import { useFrameworksLibraries } from '../../hooks/useFrameworksLibraries';
 import { useLanguages } from '../../hooks/useLanguages';
 import { useTechnologies } from '../../hooks/useTechnologies';
 import SkillsRatings from '../SkillsRatings';
+
+const selectedButton = {
+  color: 'white',
+}
 
 const Skills: React.FC = () => {
   const [selectedSkill, setSelectedSkill] = useState<string>('Languages');
@@ -34,7 +38,7 @@ const Skills: React.FC = () => {
   }
   return (
     <SkillsWrapper>
-      <Title>Skills</Title>
+      <BasicTitle>Skills</BasicTitle>
       <Underline />
       <SkillsFrame>
         <ButtonWrapper style={SkillsButtonWrapper}>

@@ -7,7 +7,7 @@ import {
   DropdownContent, 
   DropdownOption, 
 } from '../../styles/Dropdown';
-import { Title } from '../../styles/Title';
+import { BasicTitle } from '../../styles/Headers';
 import { Underline } from '../../styles/Underline';
 import { CompanyImage } from '../../styles/Image';
 import { ExperienceWrapper } from '../../styles/Wrappers';
@@ -36,7 +36,7 @@ const Experience: React.FC = () => {
 
   return (
     <ExperienceWrapper>
-      <Title>Experience</Title>
+      <BasicTitle>Experience</BasicTitle>
       <Underline />
       <DropdownWrapper>
         <DropdownButton onClick={toggleDropdown}>{selectedOption}</DropdownButton>

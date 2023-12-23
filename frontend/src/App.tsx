@@ -92,9 +92,9 @@ export function App() {
       <StandardSection id="projects">
         <Projects/>
       </StandardSection>
-      <LeftToRightSection id="resume">
+      {/* <LeftToRightSection id="resume">
         <Resume/>
-      </LeftToRightSection>
+      </LeftToRightSection> */}
       {/* <CenteredSection id="certifications">
         <Certifications/>
       </CenteredSection> */}

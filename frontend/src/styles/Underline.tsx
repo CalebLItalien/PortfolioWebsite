@@ -8,6 +8,7 @@ export const Underline = styled.div`
   position: absolute;
   top: 15vh; 
   left: 10vw;
+  background-color: ${theme.colors.LIGHTEST_ORANGE}
 `;
 
 type HeadshotUnderlineProps = {
