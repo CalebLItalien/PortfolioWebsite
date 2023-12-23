@@ -14,10 +14,12 @@ const Contact: React.FC = () => {
   const [message, setMessage] = useState('');
   const [alertMessage, setAlertMessage] = useState('');
   const [startFadeOut, setStartFadeOut] = useState(false);
+  const [alertType, setAlertType] = useState('success');
 
-  const showAlert = (message: string) => {
+  const showAlert = (message: string, type: string) => {
     setAlertMessage(message);
     setStartFadeOut(false);
+    setAlertType(type);
   }
 
   const closeAlert = () => {
@@ -55,12 +57,12 @@ const Contact: React.FC = () => {
     event.preventDefault();
 
     if (!validEmail(email)) {
-      showAlert('Please enter a valid email address.');
+      showAlert('Please enter a valid email address.', 'failure');
       return;
     }
 
     if (!name || !email|| !message) {
-      showAlert('Please fill in all fields.');
+      showAlert('Please fill in all fields.', 'failure');
       return;
     }
 
@@ -80,16 +82,16 @@ const Contact: React.FC = () => {
       });
       
       if (response.ok) {
-        showAlert('Message sent successfully!')
+        showAlert('Message sent successfully!', 'success')
         setName('');
         setEmail('');
         setMessage('');
       } else {
-        showAlert('Failed to send message. Please try again.');
+        showAlert('Failed to send message. Please try again.', 'failure');
       }
     } catch (error) {
       console.error('Error: ', error);
-      showAlert('An error occurred. Please try again at a later date.');
+      showAlert('An error occurred. Please try again at a later date.', 'failure');
     }
   };
   return (
@@ -117,7 +119,11 @@ const Contact: React.FC = () => {
           <SubmitButton type="submit">Submit</SubmitButton>
         </StyledForm>
       </ContactFrame>
-      {alertMessage && <Alert message={alertMessage} fadeOut={startFadeOut} onClose={closeAlert} />}
+      {alertMessage && <Alert 
+                        message={alertMessage} 
+                        type={alertType} 
+                        fadeOut={startFadeOut} 
+                        onClose={closeAlert} />}
     </ContactWrapper>
   );
 };
