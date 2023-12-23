@@ -29,22 +29,27 @@ export function App() {
   const monitorScroll = () => {
     if (isProgrammaticScroll) return;
     const sections = ['home', 'experience', 'skills', 'projects', 'resume', 'contact'];
-    const offsets = sections.map(id => {
+    let maxVisibleHeight = 0;
+    let mostVisibleSection = '';
+  
+    sections.forEach(id => {
       const element = document.getElementById(id);
-      if (element) return window.scrollY + element.getBoundingClientRect().top;
-      return null;
-    });
-    const activeIndex = offsets.findIndex((offset, index) => {
-      if (offset !== null) {
-        return window.scrollY >= offset && window.scrollY < (offsets[index + 1] || Infinity);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+        
+        if (visibleHeight > maxVisibleHeight) {
+          maxVisibleHeight = visibleHeight;
+          mostVisibleSection = id;
+        }
       }
-      return false;
     });
-    const newActiveSection = (window.scrollY < 50) ? 'home' : sections[activeIndex] || '';
-    if (newActiveSection !== activeSection) {
-      setActiveSection(newActiveSection);
+  
+    if (mostVisibleSection !== activeSection) {
+      setActiveSection(mostVisibleSection);
     }
   };
+  
 
   useEffect(() => {
     monitorScroll(); // for when the component initially mounts
