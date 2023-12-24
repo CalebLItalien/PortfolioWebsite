@@ -87,6 +87,8 @@ export const SkillsWrapper = styled.div`
 
 export const SkillsRatingsWrapper = styled.div`
     flex-grow: 1; 
+    background-color: ${theme.colors.LIGHTEST_ORANGE};
+    min-height: 100vh;
 `;
 
 export const ProjectsWrapper = styled.div`

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from "../theme";
 
 export const CompanyImage = styled.img`
   max-width: 100%;
@@ -11,7 +12,7 @@ export const HeadShotImage = styled.img`
   height: auto;
   width: 100%;
   max-width: 100%;
-  border-radius: 15px;
+  border-radius: ${theme.borderRadius};
   object-fit: cover;
   box-shadow: 0px 8px 20px 5px rgba(0, 0, 0, 0.4); 
   margin-bottom: 10vh;

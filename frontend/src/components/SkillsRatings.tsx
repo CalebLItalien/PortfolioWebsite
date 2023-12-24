@@ -16,8 +16,8 @@ const SectionWrapper = styled.div`
 
 const SectionTitle = styled.h2`
   margin-bottom: 10px;
-  color: ${theme.colors.LIGHTEST_ORANGE};
-  font-size: 2rem;
+  color: ${theme.colors.DARK_BLUE};
+  font-size: 1rem;
   font-weight: 400;
 `;
 

@@ -56,13 +56,13 @@ const Contact: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!validEmail(email)) {
-      showAlert('Please enter a valid email address.', 'failure');
+    if (!name || !email|| !message) {
+      showAlert('Please fill in all fields.', 'failure');
       return;
     }
 
-    if (!name || !email|| !message) {
-      showAlert('Please fill in all fields.', 'failure');
+    if (!validEmail(email)) {
+      showAlert('Please enter a valid email address.', 'failure');
       return;
     }
 

@@ -25,6 +25,7 @@ export function App() {
   const [navBarHeight, setNavBarHeight] = useState(0);
   const [activeSection, setActiveSection] = useState('');
   const [isProgrammaticScroll, setIsProgrammaticScroll] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const monitorScroll = () => {
     if (isProgrammaticScroll) return;
@@ -65,6 +66,16 @@ export function App() {
     };
   }, [isProgrammaticScroll, monitorScroll]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+  
+    window.addEventListener('resize', handleResize);
+  
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     setIsProgrammaticScroll(true);
     setActiveSection(sectionId);
@@ -84,7 +95,8 @@ export function App() {
     <AppWrapper>
       <NavigationBar onHeightChange={setNavBarHeight} 
                      scrollToSection={scrollToSection}
-                     activeSection={activeSection}/>
+                     activeSection={activeSection}
+                     windowWidth={windowWidth}/>
       <LeftToRightSection id="home">
         <Home/>
       </LeftToRightSection>
@@ -92,7 +104,7 @@ export function App() {
         <Experience/>
       </StandardSection>
       <StandardSection id="skills">
-        <Skills/>
+        <Skills windowWidth={windowWidth}/>
       </StandardSection>
       <StandardSection id="projects">
         <Projects/>

@@ -8,10 +8,10 @@ export const SkillsFrame = styled.div`
     top: 20vh;
     left: 10vw;
     width: 80vw;
-    height: 40vh;
-    min-height: 40vh;
-    background-color: ${theme.colors.DARK_BLUE};
-    border-radius: 50px;
+    height: 30vh;
+    min-height: 30vh;
+    // background-color: ${theme.colors.DARK_BLUE};
+    border-radius: ${theme.borderRadius};
     box-shadow: 0 8px 20px 5px rgba(0, 0, 0, 0.4);
     margin: 0;
     overflow: hidden;
@@ -28,7 +28,7 @@ export const ContactFrame = styled.div`
     height: 50vh;
     min-height: 50vh;
     background-color: ${theme.colors.DARK_BLUE};
-    border-radius: 15px;
+    border-radius: ${theme.borderRadius};
     box-shadow: 0 8px 20px 5px rgba(0, 0, 0, 0.4);
     transition: box-shadow 0.3s ease;
     margin: 0;

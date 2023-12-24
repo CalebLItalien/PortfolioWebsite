@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { theme } from "../theme";
+import { MOBILE_THRESHOLD } from '../constants';
 
 export const MarginButtonWrapper = styled.div`
   display: flex;
@@ -10,38 +11,52 @@ export const MarginButtonWrapper = styled.div`
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center; 
-  border-right: 1px solid ${theme.colors.LIGHTEST_ORANGE};
+  // border-right: 1px solid ${theme.colors.LIGHTEST_ORANGE};
+  background-color: ${theme.colors.DARK_BLUE};
+
 `;
 
 interface SkillsButtonProps {
   isSelected: boolean;
+  windowWidth: number;
 }
 
 export const SkillsButton = styled.button<SkillsButtonProps>`
   flex: 1;
   border: none;
+  font-size: 1.3vw;  
   background: transparent;
   color: ${theme.colors.LIGHTEST_ORANGE};
   background-color: ${props => props.isSelected ? 
                       theme.colors.LIGHT_BLUE : 
                       theme.colors.DARK_BLUE};
-  transition: font-size 0.2s ease-in-out;
+  transition: font-size 0.3s ease-in-out;
+
   &:hover {
-    font-size: 1.2em;
+    font-size: 1.55vw;  
+  }
+
+  @media (max-width: ${MOBILE_THRESHOLD}px) {
+    font-size: 2vw; 
+
+    &:hover {
+      font-size: 2.3vw;  
+    }
   }
 `;
 
+
 export const TopSkillsButton = styled(SkillsButton)`
-  border-radius: 50px 0 0 0;
+  border-radius: ${theme.borderRadius} 0 0 0;
 `;
 
 export const BottomSkillsButton = styled(SkillsButton)`
-  border-radius: 0 0 0 50px;
+  border-radius: 0 0 0 ${theme.borderRadius};
 `;
 
 export const SkillsButtonWrapper: React.CSSProperties = {
   flexDirection: 'column',
-  width: '33%',
+  width: '20%',
   height: '100%',
 };
 
@@ -89,10 +104,8 @@ export const SubmitButton = styled.button`
   border: none;
   min-height: 4vh;
   cursor: pointer;
+  transition: font-size 0.3s ease-in-out;
   &:hover {
-    transform: scale(1.05);
-    &:before {
-      opacity: 1;
-    }
+    font-size: 1.2em;
   }
 `;

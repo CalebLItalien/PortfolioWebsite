@@ -13,7 +13,11 @@ import { useLanguages } from '../../hooks/useLanguages';
 import { useTechnologies } from '../../hooks/useTechnologies';
 import SkillsRatings from '../SkillsRatings';
 
-const Skills: React.FC = () => {
+interface SkillsProps {
+  windowWidth: number;
+}
+
+const Skills: React.FC<SkillsProps> = ({ windowWidth }: SkillsProps): JSX.Element => {
   const [selectedSkill, setSelectedSkill] = useState<string>('Languages');
 
   const handleButtonClick = (skill: string) => {
@@ -40,17 +44,20 @@ const Skills: React.FC = () => {
         <ButtonWrapper style={SkillsButtonWrapper}>
           <TopSkillsButton
             isSelected={selectedSkill === 'Languages'}
-            onClick={() => handleButtonClick('Languages')}>
+            onClick={() => handleButtonClick('Languages')}
+            windowWidth={windowWidth}>
             Languages
           </TopSkillsButton>
           <SkillsButton
             isSelected={selectedSkill === 'Frameworks'} 
-            onClick={() => handleButtonClick('Frameworks')}>
+            onClick={() => handleButtonClick('Frameworks')}
+            windowWidth={windowWidth}>
             Frameworks
           </SkillsButton>
           <BottomSkillsButton
             isSelected={selectedSkill === 'Technologies'} 
-            onClick={() => handleButtonClick('Technologies')}>
+            onClick={() => handleButtonClick('Technologies')}
+            windowWidth={windowWidth}>
             Technologies
           </BottomSkillsButton>
         </ButtonWrapper>

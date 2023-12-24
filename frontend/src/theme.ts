@@ -14,7 +14,7 @@ export const theme = {
       MUTED_BLUE: "#ACC6DC",
       // DARK_BLUE: "#232A34",
       DARK_BLUE: "#161a21",
-      LIGHTEST_ORANGE: "#D1BEBA",
+      LIGHTEST_ORANGE: "#fcf3e8",
       BRIGHT_RED: "#FC0505",
       BRIGHT_GREEN: "#74FC05",
       LIGHT_BLUE: "#1E88E5"
@@ -24,5 +24,6 @@ export const theme = {
       md: "20px",
       lg: "24px",
     },
+    borderRadius: '8px',
   } as const;
   
