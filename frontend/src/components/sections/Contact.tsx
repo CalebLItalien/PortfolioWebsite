@@ -7,6 +7,8 @@ import { StyledForm,
          StyledTextArea } from '../../styles/Form';
 import { SubmitButton } from '../../styles/Button';
 import Alert from '../Alert';
+import loadingGif from '../../assets/utils/loading.gif';
+import { Loading } from '../../styles/Image';
 
 const Contact: React.FC = () => {
   const [name, setName] = useState('');
@@ -15,6 +17,7 @@ const Contact: React.FC = () => {
   const [alertMessage, setAlertMessage] = useState('');
   const [startFadeOut, setStartFadeOut] = useState(false);
   const [alertType, setAlertType] = useState('success');
+  const [isLoading, setIsLoading] = useState(false);
 
   const showAlert = (message: string, type: string) => {
     setAlertMessage(message);
@@ -71,7 +74,7 @@ const Contact: React.FC = () => {
       user_name: String(name),
       user_message: String(message),
     };
-
+    setIsLoading(true);
     try {
       const response = await fetch('http://127.0.0.1:8081/send-email', {
         method: 'POST',
@@ -89,14 +92,21 @@ const Contact: React.FC = () => {
       } else {
         showAlert('Failed to send message. Please try again.', 'failure');
       }
+      setIsLoading(false);
     } catch (error) {
       console.error('Error: ', error);
+      setIsLoading(false);
       showAlert('An error occurred. Please try again at a later date.', 'failure');
     }
   };
   return (
     <ContactWrapper>
       <ContactFrame>
+      {isLoading && (
+        <Loading>
+          <img src={loadingGif} alt="Loading..." />
+        </Loading>
+      )}
         <ContactMe>Contact Me</ContactMe>
         <StyledForm onSubmit={handleSubmit}>
           <StyledInput

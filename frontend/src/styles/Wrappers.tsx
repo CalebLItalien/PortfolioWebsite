@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { theme } from "../theme";
+import { HOME_THRESHOLD } from '../constants';
 
 export const CenteredSection = styled.section`
   min-height: 100vh; 
@@ -9,16 +10,6 @@ export const CenteredSection = styled.section`
   background: ${theme.colors.DARK_BLUE};
   color: #333333; 
   text-align: center; 
-  h2 {
-    margin: 0 0 2rem 0; 
-    font-size: 2.5rem; 
-  }
-  p {
-    font-size: 1rem; 
-    line-height: 1.6; 
-    max-width: 600px; 
-    margin: 0 auto; 
-  }
 `;
 
 export const ContactSection = styled.section`
@@ -49,19 +40,13 @@ export const StandardSection = styled.section`
   background: ${theme.colors.DARK_BLUE};
   color: #333333; 
   text-align: center; 
-  p {
-    font-size: 1rem; 
-    line-height: 1.6; 
-    max-width: 600px; 
-    margin: 0 auto; 
-  }
 `;
 
 export const NavBarWrapper = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1001;
   text-align: center;
   border-bottom: 2px solid ${theme.colors.LIGHTEST_ORANGE};
   background: ${theme.colors.DARK_BLUE};
@@ -80,6 +65,13 @@ export const HomeWrapper = styled.div`
   display: flex;
   width: 100%;
 `;
+
+export const MobileHomeWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column; 
+`;
+
 
 export const SkillsWrapper = styled.div`
   position: relative;
@@ -109,22 +101,46 @@ export const ContactWrapper = styled.div`
   width: 100%;
 `;
 
-export const HeadshotWrapper = styled.div`
+interface HomeProps {
+  windowWidth: number;
+}
+
+const MAX_WIDTH_HEADSHOT = 65; 
+const MIN_WIDTH_HEADSHOT = 33; 
+
+export const HeadshotWrapper = styled.div<HomeProps>`
   flex: 1;
-  max-width: 33%;
+  max-width: ${props => {
+    const dynamicWidth = props.windowWidth <= HOME_THRESHOLD 
+      ? MAX_WIDTH_HEADSHOT + (HOME_THRESHOLD - props.windowWidth) / HOME_THRESHOLD * (100 - MAX_WIDTH_HEADSHOT - MIN_WIDTH_HEADSHOT)
+      : MIN_WIDTH_HEADSHOT;
+    return `${dynamicWidth}%`;
+  }};
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
 `;
 
-export const HomeContentWrapper = styled.div`
+export const HomeContentWrapper = styled.div<HomeProps>`
   flex: 2;
-  max-width: 66%;
+  max-width: ${props => {
+    const dynamicWidth = props.windowWidth <= HOME_THRESHOLD 
+      ? 100 - (MAX_WIDTH_HEADSHOT + (HOME_THRESHOLD - props.windowWidth) / HOME_THRESHOLD * (100 - MAX_WIDTH_HEADSHOT - MIN_WIDTH_HEADSHOT))
+      : 100 - MIN_WIDTH_HEADSHOT;
+    return `${dynamicWidth}%`;
+  }};
   padding-top: 20vh;
   padding-left: 15vh;
   padding-right: 15vh;
 `;
 
+
+export const DescriptionImageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 10px; 
+`;
 
 

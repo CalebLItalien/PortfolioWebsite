@@ -16,6 +16,7 @@ export const StyledAnchorLink = styled.a`
   margin: 4px 0;
   text-decoration: none;
   font-size: 1.2rem;
+  transition: font-size 0.3s ease-in-out;
   &.active {
     color: ${theme.colors.WHITE};
     &:before {
@@ -32,5 +33,6 @@ export const StyledAnchorLink = styled.a`
   }
   &:hover, &:focus, &:active {
     color: ${theme.colors.WHITE}; 
+    font-size: 1.4rem;
   }
 `;

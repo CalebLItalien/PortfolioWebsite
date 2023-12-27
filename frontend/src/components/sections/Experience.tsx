@@ -10,7 +10,8 @@ import {
 import { BasicTitle } from '../../styles/Headers';
 import { Underline } from '../../styles/Underline';
 import { CompanyImage } from '../../styles/Image';
-import { ExperienceWrapper } from '../../styles/Wrappers';
+import { DescriptionImageWrapper, ExperienceWrapper } from '../../styles/Wrappers';
+import { ExperienceDescription } from '../../styles/Text';
 
 const Experience: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -18,10 +19,13 @@ const Experience: React.FC = () => {
   const companyNames = useCompanyNames();
   const companyDescriptions = useCompanyDescriptions();
   const [selectedOption, setSelectedOption] = useState(companyNames[0] || ''); 
+  const [imageUrl, setImageUrl] = useState('');
 
   useEffect(() => {
     if (companyNames.length > 0) {
       setSelectedOption(companyNames[0]);
+      const initialImageCompany = companyNames[0].toLowerCase().trim().replace(/\s/g, '');
+      setImageUrl(require(`../../assets/companies/${initialImageCompany}.png`).default);
     }
   }, [companyNames]);
   
@@ -32,9 +36,18 @@ const Experience: React.FC = () => {
     setInfo(`${description}`);
     setSelectedOption(optionLabel);
     setShowDropdown(false);
+
+    const imageCompany = optionLabel.toLowerCase().trim().replace(/\s/g, '');
+    try {
+      const image = require(`../../assets/companies/${imageCompany}.png`);
+      setImageUrl(image);
+    } catch (error) {
+      console.error(`Error loading image for ${optionLabel}:`, error);
+      setImageUrl(''); 
+    }
   };
 
-  return (
+ return (
     <ExperienceWrapper>
       <BasicTitle>Experience</BasicTitle>
       <Underline />
@@ -42,22 +55,18 @@ const Experience: React.FC = () => {
         <DropdownButton onClick={toggleDropdown}>{selectedOption}</DropdownButton>
         {showDropdown && (
           <DropdownContent show={showDropdown}>
-            {companyNames.map((companyName, index) => {
-              const imageCompany = companyName.toLowerCase().trim().replace(/\s/g, '');
-              return (
-                <DropdownOption key={index} onClick={() => selectOption(index, companyName)}>
-                <CompanyImage
-                  src={require(`../../assets/companies/${imageCompany}.png`).default}
-                  alt={companyName}
-                />
+            {companyNames.map((companyName, index) => (
+              <DropdownOption key={index} onClick={() => selectOption(index, companyName)}>
                 {companyName}
               </DropdownOption>
-              );
-            })}
+            ))}
           </DropdownContent>
         )}
       </DropdownWrapper>
-      {info && <p>{info}</p>}
+      <DescriptionImageWrapper>
+        {info && <ExperienceDescription>{info}</ExperienceDescription>}
+        {imageUrl && <CompanyImage src={imageUrl} alt={selectedOption} />}
+      </DescriptionImageWrapper>
     </ExperienceWrapper>
   );
 };

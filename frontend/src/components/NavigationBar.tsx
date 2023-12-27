@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import React,{ useRef, useEffect, useState } from "react";
 import { NavBarWrapper } from "../styles/Wrappers";
 import { StyledNav, StyledAnchorLink } from "../styles/Anchors";
 import menuIcon from '../assets/utils/menu2.png';

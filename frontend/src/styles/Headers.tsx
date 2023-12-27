@@ -9,6 +9,14 @@ export const Welcome = styled.h2`
   margin-top: 5vh;
   min-height: 5vh;
 `;
+export const MobileWelcome = styled.h2`
+  color: ${theme.colors.LIGHTEST_ORANGE};
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  margin-top: 5vh;
+  min-height: 5vh;
+`;
 
 export const ContactMe = styled.h2`
   color: ${theme.colors.LIGHTEST_ORANGE};

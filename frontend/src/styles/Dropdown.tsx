@@ -4,7 +4,7 @@ import { theme } from "../theme";
 export const  DropdownWrapper = styled.div`
   position: absolute;
   top: 20vh;
-  left: 25vw; 
+  left: 10vw; 
   width: 200px;
 `;
 

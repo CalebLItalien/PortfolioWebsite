@@ -10,8 +10,14 @@ import { Welcome } from '../../styles/Headers';
 import { useName } from '../../hooks/useName';
 import { WelcomeUnderline } from '../../styles/Underline';
 import TypingAnimation from '../TypingAnimation';
+import { HOME_THRESHOLD, MOBILE_THRESHOLD } from '../../constants';
+import { text } from 'd3';
 
-const Home: React.FC = () => {
+interface HomeProps {
+  windowWidth: number;
+}
+
+const Home: React.FC<HomeProps> = ({ windowWidth }: HomeProps): JSX.Element => {
   const headshot = useHeadshot();
   const socialButtons = useSocialButtons();
   const bio = useBio();
@@ -40,29 +46,47 @@ const Home: React.FC = () => {
     return () => window.removeEventListener('resize', updateWidth);
   }, [bio])
 
+  const renderBio = () => {
+    if (windowWidth <= HOME_THRESHOLD && windowWidth > MOBILE_THRESHOLD) {
+      return (
+        <Bio ref={textRef}>
+          {bio}
+        </Bio>
+      );
+    } else {
+      return (
+        <Bio ref={textRef}>
+          <BioTabbed>
+            {bio}
+          </BioTabbed>
+        </Bio>
+      );
+    }
+  }
+
   return (
     <HomeWrapper>
-        <HeadshotWrapper>
-          <HeadShotImage src={headshot} alt="headshot"/>
-        </HeadshotWrapper>
-      <HomeContentWrapper>
+      <HeadshotWrapper
+          windowWidth={windowWidth}>
+        <HeadShotImage src={headshot} alt="headshot"/>
+      </HeadshotWrapper>
+      <HomeContentWrapper
+          windowWidth={windowWidth}>
         <Welcome>
           <TypingAnimation text={welcomeText} speed={100}/>
         </Welcome>
         <WelcomeUnderline width={textWidth}></WelcomeUnderline>
-        <Bio ref={textRef}>
-          <BioTabbed>
-            {bio} 
-          </BioTabbed>
-        </Bio>
+        {renderBio()}
         <MarginButtonWrapper>
           <SocialButton
+            github={true}
             href={githubLink}
             target="_blank"
             data-tooltip="GitHub" 
             style={{ backgroundImage: `url(${githubImage})` }}
             ></SocialButton>
           <SocialButton
+            github={false}
             href={linkedinLink}
             target="_blank"
             data-tooltip="LinkedIn" 

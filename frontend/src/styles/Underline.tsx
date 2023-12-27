@@ -25,3 +25,12 @@ export const WelcomeUnderline = styled.div<HeadshotUnderlineProps>`
     background-color: ${theme.colors.LIGHTEST_ORANGE}
 `;
 
+export const MobileWelcomeUnderline = styled.div`
+    height: 1px; 
+    width: 80vw;  
+    margin-left: 10vw;
+    margin-right: auto;
+    border-radius: 5px;
+    background-color: ${theme.colors.LIGHTEST_ORANGE}
+`;
+

@@ -1,17 +1,17 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import { NavigationBar } from "./components/NavigationBar";
 import Home  from "./components/sections/Home";
-import Resume from "./components/sections/Resume";
 import Projects from "./components/sections/Projects";
 import Skills from "./components/sections/Skills";
-// import Certifications from "./components/sections/Certifications";
 import Contact from "./components/sections/Contact";
+import MobileHome from "./components/sections/MobileHome";
 import Experience from "./components/sections/Experience";
 import { CenteredSection, 
   ContactSection, 
   LeftToRightSection, 
   StandardSection } from "./styles/Wrappers";
+import { HOME_THRESHOLD, MOBILE_THRESHOLD } from "./constants";
 
 const AppWrapper = styled.div`
   height: 100vh;
@@ -91,15 +91,30 @@ export function App() {
     }, 1000);
   };
 
+  const renderHomeSection = () => {
+    if (windowWidth <= MOBILE_THRESHOLD) {
+      return (
+        <CenteredSection id="home">
+          <MobileHome />
+        </CenteredSection>
+      );
+    } else {
+      return (
+        <LeftToRightSection id="home">
+          <Home 
+            windowWidth={windowWidth} />
+        </LeftToRightSection>
+      );
+    }
+  };
+
   return (
     <AppWrapper>
       <NavigationBar onHeightChange={setNavBarHeight} 
                      scrollToSection={scrollToSection}
                      activeSection={activeSection}
                      windowWidth={windowWidth}/>
-      <LeftToRightSection id="home">
-        <Home/>
-      </LeftToRightSection>
+      {renderHomeSection()}
       <StandardSection id="experience">
         <Experience/>
       </StandardSection>
@@ -109,12 +124,6 @@ export function App() {
       <StandardSection id="projects">
         <Projects/>
       </StandardSection>
-      {/* <LeftToRightSection id="resume">
-        <Resume/>
-      </LeftToRightSection> */}
-      {/* <CenteredSection id="certifications">
-        <Certifications/>
-      </CenteredSection> */}
       <ContactSection id="contact">
         <Contact/>
       </ContactSection>
