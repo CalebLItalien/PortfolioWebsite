@@ -1,46 +1,62 @@
 import styled from 'styled-components';
 import { theme } from "../theme";
 
-export const  DropdownWrapper = styled.div`
+export const DropdownWrapper = styled.div`
   position: absolute;
   top: 20vh;
   left: 10vw; 
-  width: 200px;
+  right: 10vw;
+  z-index: 1000;
 `;
 
-export const  DropdownButton = styled.button`
+
+export const DropdownButton = styled.button<DropdownProps>`
   padding: 10px;
-  width: 100%;
   border: none;
-  background-color: #f0f0f0;
+  background-color: ${theme.colors.DARK_BLUE};
+  box-shadow: 0 8px 20px 5px rgba(0, 0, 0, 0.4);
   cursor: pointer;
+  color: ${theme.colors.LIGHTEST_ORANGE};
+  border-radius: ${props => props.show 
+    ? `${theme.borderRadius} ${theme.borderRadius} 0 0` 
+    : `${theme.borderRadius}`};  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img {
+    width: 28px;
+    height: 28px;
+    transform: ${props => props.show ? 'rotate(180deg)' : 'rotate(0deg)'};
+    transition: transform 0.3s ease; 
+  }
 `;
 
 type DropdownProps = {
   show: boolean;
 };
 
-export const  DropdownContent = styled.div<DropdownProps>`
+export const DropdownContent = styled.div<DropdownProps>`
   display: ${(props) => (props.show ? 'block' : 'none')}; 
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
   color: ${theme.colors.LIGHTEST_ORANGE};
+  background-color: ${theme.colors.DARK_BLUE};
+  // border-radius: 0 0 ${theme.borderRadius} ${theme.borderRadius};
+  box-shadow: 0 8px 20px 5px rgba(0, 0, 0, 0.4);
 `;
 
-export const  DropdownOption = styled.button`
-  color: black;
+export const DropdownOption = styled.button`
+  color: ${theme.colors.LIGHTEST_ORANGE};
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  width: 100%;
   background: none;
   border: none;
-  text-align: center;
+  background-color: ${theme.colors.DARK_BLUE};
+  text-align: left;
   cursor: pointer;
+  transition: font-size 0.3s ease; 
 
   &:hover {
-    background-color: #f1f1f1;
+    font-size: 1.1em; 
   }
 `;

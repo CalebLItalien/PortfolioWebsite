@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { theme } from "../theme";
-import { MOBILE_THRESHOLD } from '../constants';
+import { MOBILE_THRESHOLD, SKILLS_THRESHOLD } from '../constants';
 import getRGBFromHex from './utils/getRGBFromHex';
 
 export const MarginButtonWrapper = styled.div`
@@ -12,9 +12,12 @@ export const MarginButtonWrapper = styled.div`
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center; 
-  // border-right: 1px solid ${theme.colors.LIGHTEST_ORANGE};
   background-color: ${theme.colors.DARK_BLUE};
+  flex: 1;
 
+  @media (max-width: ${MOBILE_THRESHOLD}) {
+    flex: 2;
+  }
 `;
 
 interface SkillsButtonProps {
@@ -34,14 +37,21 @@ export const SkillsButton = styled.button<SkillsButtonProps>`
   transition: font-size 0.3s ease-in-out;
 
   &:hover {
-    font-size: 1.55vw;  
+    font-size: 1.6vw;  
   }
 
   @media (max-width: ${MOBILE_THRESHOLD}px) {
-    font-size: 2vw; 
+    font-size: 2.8vw; 
 
     &:hover {
-      font-size: 2.3vw;  
+      font-size: 3vw;  
+    }
+  }
+
+  @media (min-width: ${MOBILE_THRESHOLD + 1}px) and (max-width: ${SKILLS_THRESHOLD}px) {
+    font-size: 1.8vw;
+    &:hover {
+      font-size: 2.1vw;
     }
   }
 `;

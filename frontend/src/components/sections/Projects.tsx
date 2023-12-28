@@ -9,12 +9,14 @@ import {
 } from '../../styles/Dropdown';
 import { BasicTitle } from '../../styles/Headers';
 import { Underline } from '../../styles/Underline';
-import { ExperienceWrapper } from '../../styles/Wrappers';
+import { DescriptionImageWrapper, ExperienceWrapper } from '../../styles/Wrappers';
 import { ProjectDescription } from '../../styles/Text';
 
 const Projects: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [info, setInfo] = useState('');
+  // const [imageUrl, setImageUrl] = useState('');
+
   const projectNames = useProjectNames();
   const projectDescriptions = useProjectDescriptions();
   const [selectedOption, setSelectedOption] = useState(projectNames[0] || ''); 
@@ -42,17 +44,17 @@ const Projects: React.FC = () => {
         <DropdownButton onClick={toggleDropdown}>{selectedOption}</DropdownButton>
         {showDropdown && (
           <DropdownContent show={showDropdown}>
-            {projectNames.map((projectName, index) => {
-              return (
+            {projectNames.map((projectName, index) => (
                 <DropdownOption key={index} onClick={() => selectOption(index, projectName)}>
                 {projectName}
               </DropdownOption>
-              );
-            })}
+            ))}
           </DropdownContent>
         )}
       </DropdownWrapper>
-      {info && <ProjectDescription>{info}</ProjectDescription>}
+      <DescriptionImageWrapper>
+        {info && <ProjectDescription>{info}</ProjectDescription>}
+      </DescriptionImageWrapper>
     </ExperienceWrapper>
   );
 };

@@ -3,6 +3,7 @@ import { theme } from "../theme";
 
 export const SkillsFrame = styled.div`
     display: flex;
+    flex-direction: row;
     align-items: flex-start;
     position: absolute;
     top: 20vh;
@@ -10,7 +11,6 @@ export const SkillsFrame = styled.div`
     width: 80vw;
     height: 30vh;
     min-height: 30vh;
-    // background-color: ${theme.colors.DARK_BLUE};
     border-radius: ${theme.borderRadius};
     box-shadow: 0 8px 20px 5px rgba(0, 0, 0, 0.4);
     margin: 0;

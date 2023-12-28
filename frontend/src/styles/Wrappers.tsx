@@ -72,13 +72,12 @@ export const MobileHomeWrapper = styled.div`
   flex-direction: column; 
 `;
 
-
 export const SkillsWrapper = styled.div`
   position: relative;
 `;
 
 export const SkillsRatingsWrapper = styled.div`
-    flex-grow: 1; 
+    flex: 2; 
     background-color: ${theme.colors.LIGHTEST_ORANGE};
     min-height: 100vh;
 `;
