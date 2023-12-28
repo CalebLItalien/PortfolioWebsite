@@ -3,9 +3,13 @@ import { theme } from "../theme";
 
 export const CompanyImage = styled.img`
   height: 100px;
-  widht: 100px;
   position: relative;
-  margin-top: 75vh;
+  margin-top: 30vh;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
 `;
 
 export const HeadShotImage = styled.img`
@@ -57,4 +61,34 @@ export const Loading = styled.div`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 10; 
+`;
+
+export const GithubProject = styled.img`
+  cursor: pointer;
+  width: 63px;
+  height: 63px;
+  margin-top: 30vh; 
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &::before {
+    content: attr(data-tooltip); 
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8); 
+    color: white; 
+    padding: 4px 8px; 
+    border-radius: 4px;
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); 
+    opacity: 0; 
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;  
+    white-space: nowrap;  
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
 `;

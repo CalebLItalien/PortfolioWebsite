@@ -11,7 +11,6 @@ import { useName } from '../../hooks/useName';
 import { WelcomeUnderline } from '../../styles/Underline';
 import TypingAnimation from '../TypingAnimation';
 import { HOME_THRESHOLD, MOBILE_THRESHOLD } from '../../constants';
-import { text } from 'd3';
 
 interface HomeProps {
   windowWidth: number;

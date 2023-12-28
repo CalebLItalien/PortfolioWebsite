@@ -140,6 +140,11 @@ export const DescriptionImageWrapper = styled.div`
   flex-direction: column;
   align-items: center; 
   gap: 10px; 
+
+  div {
+    display: inline-block;
+    cursor: pointer;
+  }
 `;
 
 

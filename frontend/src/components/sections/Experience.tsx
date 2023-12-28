@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useCompanyNames } from '../../hooks/useCompanyNames';
 import { useCompanyDescriptions } from '../../hooks/useCompanyDescriptions';
 import { useCompanyPeriods } from '../../hooks/useCompanyPeriods';
+import { useCompanyLinks } from '../../hooks/useCompanyLinks';
 import {
   DropdownWrapper,
   DropdownButton,
@@ -21,19 +22,25 @@ const Experience: React.FC = () => {
   const [info, setInfo] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [dropdownWidth, setDropdownWidth] = useState(0);
+  
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const companyNames = useCompanyNames();
   const companyDescriptions = useCompanyDescriptions();
   const companyPeriods = useCompanyPeriods();
+  const companyLinks = useCompanyLinks();
 
   const [selectedOption, setSelectedOption] = useState(companyNames[0] || '');
+  const [currentLink, setCurrentLink] = useState(companyLinks[0] || '');
 
   useEffect(() => {
     if (companyNames.length > 0) {
       const firstCompanyName = companyNames[0];
       setSelectedOption(firstCompanyName);
 
+      const firstCompanyLink = companyLinks[0] || '';
+      setCurrentLink(firstCompanyLink);
+      
       const imageCompany = firstCompanyName.toLowerCase().trim().replace(/\s/g, '');
       try {
         import(`../../assets/companies/${imageCompany}.png`)
@@ -80,6 +87,9 @@ const Experience: React.FC = () => {
     setSelectedOption(optionLabel);
     setShowDropdown(false);
 
+    const link = companyLinks[optionIndex] || '';
+    setCurrentLink(link);
+
     const imageCompany = optionLabel.toLowerCase().trim().replace(/\s/g, '');
     try {
       const image = require(`../../assets/companies/${imageCompany}.png`);
@@ -116,7 +126,7 @@ const Experience: React.FC = () => {
           show={showDropdown}
           onClick={toggleDropdown}>
           {selectedOption}
-          <img src={dropdown} alt="Dropdown icon" style={{ width: '28px', height: '28px' }} />
+          <img src={dropdown} alt="Dropdown icon" />
         </DropdownButton>
         {showDropdown && (
           <DropdownContent show={showDropdown}
@@ -132,8 +142,15 @@ const Experience: React.FC = () => {
         )}
       </DropdownWrapper>
       <DescriptionImageWrapper>
+        {imageUrl && (
+          <CompanyImage
+            src={imageUrl}
+            alt={selectedOption}
+            onClick={() => currentLink && window.open(currentLink, '_blank')}
+            style={{ cursor: 'pointer' }}
+          />
+        )}
         {info && <ExperienceDescription dangerouslySetInnerHTML={{ __html: info }} />}        
-        {imageUrl && <CompanyImage src={imageUrl} alt={selectedOption} />}
       </DescriptionImageWrapper>
     </ExperienceWrapper>
   );

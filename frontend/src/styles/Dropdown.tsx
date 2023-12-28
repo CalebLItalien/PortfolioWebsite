@@ -56,7 +56,7 @@ export const DropdownOption = styled.button`
   cursor: pointer;
   transition: font-size 0.3s ease; 
 
-  &:hover {
-    font-size: 1.1em; 
-  }
+  // &:hover {
+  //   font-size: 1.1em; 
+  // }
 `;

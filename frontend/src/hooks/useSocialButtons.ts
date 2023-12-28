@@ -1,4 +1,4 @@
-import githubImage from '../assets/utils/github3.png';
+import githubImage from '../assets/utils/github.png';
 import linkedinImage from '../assets/utils/linkedin.png';
 import { useGithubLink } from './useGithubLink';
 import {useLinkedinLink} from './useLinkedinLink';
