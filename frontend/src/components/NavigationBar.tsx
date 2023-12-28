@@ -44,6 +44,7 @@ interface NavigationBarProps {
 
 export function NavigationBar({ onHeightChange, scrollToSection, activeSection, windowWidth }: NavigationBarProps): JSX.Element {
   const navBarRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -53,12 +54,26 @@ export function NavigationBar({ onHeightChange, scrollToSection, activeSection, 
         onHeightChange(newHeight); 
       }
     };
-
     updateNavBarHeight();
     window.addEventListener('resize', updateNavBarHeight);
 
     return () => window.removeEventListener('resize', updateNavBarHeight);
   }, [onHeightChange]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    }
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
 
   const renderLinks = () => ( 
     <>
@@ -91,7 +106,7 @@ export function NavigationBar({ onHeightChange, scrollToSection, activeSection, 
         <Hamburger src={menuIcon} alt="Menu" />
       </div>
       {isMenuOpen && (
-        <DropdownContainer>
+        <DropdownContainer ref={dropdownRef}>
           {renderLinks()}
         </DropdownContainer>
       )}
