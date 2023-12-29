@@ -10,8 +10,9 @@ import Experience from "./components/sections/Experience";
 import { CenteredSection, 
   ContactSection, 
   LeftToRightSection, 
-  StandardSection } from "./styles/Wrappers";
-import { HOME_THRESHOLD, MOBILE_THRESHOLD } from "./constants";
+  StandardSection,
+  SkillsSection } from "./styles/Wrappers";
+import { MOBILE_THRESHOLD } from "./constants";
 
 const AppWrapper = styled.div`
   height: 100vh;
@@ -118,9 +119,9 @@ export function App() {
       <StandardSection id="experience">
         <Experience/>
       </StandardSection>
-      <StandardSection id="skills">
+      <SkillsSection id="skills">
         <Skills windowWidth={windowWidth}/>
-      </StandardSection>
+      </SkillsSection>
       <StandardSection id="projects">
         <Projects windowWidth={windowWidth}/>
       </StandardSection>

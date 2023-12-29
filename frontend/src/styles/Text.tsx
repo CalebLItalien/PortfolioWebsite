@@ -22,3 +22,15 @@ export const ExperienceDescription = styled.p`
   line-height: 1.2;
   text-align: left;
 `;
+
+type ResumeDownloadProps = {
+  width: number;
+}
+
+export const DownloadResume = styled.div<ResumeDownloadProps>`
+  width: ${props => props.width}px;
+  color: ${theme.colors.LIGHTEST_ORANGE};
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+`;

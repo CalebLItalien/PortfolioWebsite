@@ -15,8 +15,8 @@ export const theme = {
       // DARK_BLUE: "#232A34",
       DARK_BLUE: "#161a21",
       LIGHTEST_ORANGE: "#fcf3e8",
-      BRIGHT_RED: "#FC0505",
-      BRIGHT_GREEN: "#74FC05",
+      BRIGHT_RED: "#9e0b0b",
+      BRIGHT_GREEN: "#247c21",
       LIGHT_BLUE: "#1E88E5"
     },
     fontSizes: {

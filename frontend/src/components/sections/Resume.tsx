@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ResumeWrapper } from '../../styles/Wrappers';
 import { PDFImage } from '../../styles/Image';
 import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
 import { PDFImageFrame } from '../../styles/Frame';
-import { DownloadResume } from '../../styles/Headers';
+import { DownloadResume } from '../../styles/Text';
+import TypingAnimation from '../TypingAnimation';
 
 GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.269/pdf.worker.min.mjs';
 
 const Resume: React.FC = () => {
   const [pdfImage, setPdfImage] = useState<string>('');
+  const [imageWidth, setImageWidth] = useState<number>(0);
+  const pdfImageRef = useRef<HTMLImageElement>(null); 
+  const downloadResumeText = "Click resume to download.";
 
   useEffect(() => {
     const fetchPdf = async () => {
@@ -29,21 +33,43 @@ const Resume: React.FC = () => {
       } else {
         console.error('Unable to get canvas context');
       }
-      setPdfImage(canvas.toDataURL());
     };
+
     fetchPdf();
   }, []);
 
+  useEffect(() => {
+    const updateWidth = () => {
+      if (pdfImageRef.current) {
+        setImageWidth(pdfImageRef.current.offsetWidth);
+      }
+    };
+
+    window.addEventListener('resize', updateWidth); 
+    updateWidth(); 
+
+    return () => window.removeEventListener('resize', updateWidth); 
+  }, [pdfImage]); 
+
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = `${process.env.PUBLIC_URL}/resume.pdf`;
+    link.download = 'Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
   return (
     <ResumeWrapper>
-      {/* <DownloadResume>
-        <p>Click resume to download</p>
-      </DownloadResume> */}
       <PDFImageFrame>
         {pdfImage && (
-          <a href={`${process.env.PUBLIC_URL}/resume.pdf`} download>
-            <PDFImage src={pdfImage} alt="Resume Preview" />
-          </a>
+          <>
+            <PDFImage ref={pdfImageRef} src={pdfImage} alt="Resume Preview" onClick={handleDownload} />
+            <DownloadResume width={imageWidth}>
+              <TypingAnimation text={downloadResumeText} speed={100}/>
+            </DownloadResume>
+          </>
         )}
       </PDFImageFrame>
     </ResumeWrapper>

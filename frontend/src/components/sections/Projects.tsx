@@ -88,6 +88,7 @@ const Projects: React.FC<ProjectProps> = ({ windowWidth }: ProjectProps) => {
 
   return (
     <ProjectsWrapper>
+      <div>
       <BasicTitle>Projects</BasicTitle>
       <Underline />
       <DropdownWrapper ref={dropdownRef}>
@@ -119,6 +120,7 @@ const Projects: React.FC<ProjectProps> = ({ windowWidth }: ProjectProps) => {
           data-tooltip="Link to project" 
         />
       </ProjectDescriptionWrapper>
+      </div>
       <Resume/>
     </ProjectsWrapper>
   );

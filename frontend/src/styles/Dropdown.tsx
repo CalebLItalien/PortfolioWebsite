@@ -19,7 +19,8 @@ export const DropdownButton = styled.button<DropdownProps>`
   color: ${theme.colors.LIGHTEST_ORANGE};
   border-radius: ${props => props.show 
     ? `${theme.borderRadius} ${theme.borderRadius} 0 0` 
-    : `${theme.borderRadius}`};  display: flex;
+    : `${theme.borderRadius}`};  
+  display: flex;
   justify-content: space-between;
   align-items: center;
   img {

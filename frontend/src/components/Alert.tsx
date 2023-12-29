@@ -61,7 +61,7 @@ const ModalContainer = styled.div<ModalContainerProps>`
 const AlertMessage = styled.p`
   flex: 1;
   text-align: center;
-  color: ${theme.colors.WHITE};
+  color: ${theme.colors.LIGHTEST_ORANGE};
 `;
 
 interface AlertProps {

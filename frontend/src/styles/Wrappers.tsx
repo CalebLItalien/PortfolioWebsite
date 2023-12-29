@@ -28,7 +28,7 @@ export const LeftToRightSection = styled.section`
   align-items: stretch; 
   justify-content: flex-start; 
   background: ${theme.colors.DARK_BLUE};
-  color: #333333;
+  color: ${theme.colors.LIGHTEST_ORANGE}; 
   text-align: left;
   width: 100%;
 `;
@@ -38,7 +38,16 @@ export const StandardSection = styled.section`
   display: flex; 
   flex-direction: column; 
   background: ${theme.colors.DARK_BLUE};
-  color: #333333; 
+  color: ${theme.colors.LIGHTEST_ORANGE}; 
+  text-align: center; 
+`;
+
+export const SkillsSection = styled.section`
+  min-height: 60vh; 
+  display: flex; 
+  flex-direction: column; 
+  background: ${theme.colors.DARK_BLUE};
+  color: ${theme.colors.LIGHTEST_ORANGE}; 
   text-align: center; 
 `;
 
@@ -87,15 +96,12 @@ export const ProjectsWrapper = styled.div`
   display: flex; 
   align-items: start; 
   width: 100%;   
+  justify-content: space-between;
 `;
 
 export const ResumeWrapper = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: space-around;
-  align-items: right;
-  text-align: right;
-  width: 33vw;
+  justify-content: center;
+  margin-top: 20vh;
 `;
 
 export const ContactWrapper = styled.div`

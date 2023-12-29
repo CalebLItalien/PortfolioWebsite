@@ -29,17 +29,6 @@ export const ContactMe = styled.h2`
   width: calc(100% - 10vw);
 `;
 
-export const DownloadResume = styled.div`
-  color: ${theme.colors.LIGHTEST_ORANGE};
-  width: calc(50% - 30vw);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.9rem;
-  font-weight: bold;
-  margin-left: 30vw;
-`;
-
 export const BasicTitle = styled.h1`
   color: ${theme.colors.LIGHTEST_ORANGE};
   position: absolute;

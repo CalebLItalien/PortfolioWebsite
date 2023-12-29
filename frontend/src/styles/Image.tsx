@@ -48,7 +48,8 @@ export const PDFImage = styled.img`
   height: 43vh;
   display: block;
   margin: 0 auto;
-`
+  cursor: pointer;
+`;
 
 export const Loading = styled.div`
   position: absolute;
