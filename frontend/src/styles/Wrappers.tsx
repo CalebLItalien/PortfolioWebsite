@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { theme } from "../theme";
-import { HOME_THRESHOLD } from '../constants';
+import { HOME_THRESHOLD, MOBILE_THRESHOLD } from '../constants';
 
 export const CenteredSection = styled.section`
   min-height: 100vh; 
@@ -140,6 +140,10 @@ export const HomeContentWrapper = styled.div<HomeProps>`
   padding-top: 20vh;
   padding-left: 15vh;
   padding-right: 15vh;
+  // @media screen (max-width: ${MOBILE_THRESHOLD}px) {
+  //   padding-left: 3vh;
+  //   padding-right: 3vh;
+  // }
 `;
 
 
@@ -148,11 +152,6 @@ export const DescriptionImageWrapper = styled.div`
   flex-direction: column;
   align-items: center; 
   gap: 10px; 
-
-  div {
-    display: inline-block;
-    cursor: pointer;
-  }
 `;
 
 export const ProjectDescriptionWrapper = styled.div`

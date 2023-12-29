@@ -18,7 +18,7 @@ export const ExperienceDescription = styled.p`
   top: 40vh;
   left: 10vw;
   right: 10vw;
-  font-size: clamp(1rem, 1.2vw, 1.5rem); 
+  font-size: clamp(0.5rem, 1vw + 1vh, 1.5rem);  
   line-height: 1.2;
   text-align: left;
 `;
@@ -30,7 +30,6 @@ type ResumeDownloadProps = {
 export const DownloadResume = styled.div<ResumeDownloadProps>`
   width: ${props => props.width}px;
   color: ${theme.colors.LIGHTEST_ORANGE};
-  cursor: pointer;
   text-align: center;
   margin-top: 10px;
 `;

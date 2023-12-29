@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 import { theme } from "../theme";
-import { MOBILE_THRESHOLD, SKILLS_THRESHOLD } from '../constants';
+import { MOBILE_THRESHOLD, SKILLS_THRESHOLD, SOCIAL_BUTTON_THRESHOLD } from '../constants';
 import getRGBFromHex from './utils/getRGBFromHex';
 
 export const MarginButtonWrapper = styled.div`
   display: flex;
   justify-content: center; 
   margin-top: 20px;
+  @media (max-height: ${SOCIAL_BUTTON_THRESHOLD}px) {
+    margin-top: 2px;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
@@ -119,6 +122,16 @@ export const MobileSocialButton = styled.a<SocialButtonProps>`
   position: relative; 
   transition: transform 0.3s ease-in-out;
 
+  @media (max-height: ${SOCIAL_BUTTON_THRESHOLD}px) {
+    width: ${({ github }) => github ? '53px' : '50px'};
+    height: ${({ github }) => github ? '53px' : '50px'};
+  }
+
+  @media (max-height: 600px) {
+    width: ${({ github }) => github ? '50px' : '47px'};
+    height: ${({ github }) => github ? '50px' : '47px'};
+  }
+
   ::before {
     content: attr(data-tooltip); 
     position: absolute;
@@ -140,6 +153,7 @@ export const MobileSocialButton = styled.a<SocialButtonProps>`
     }
   }
 `;
+
 
 export const SubmitButton = styled.button`
   border-radius: 5px;

@@ -4,7 +4,7 @@ import { useSocialButtons } from '../../hooks/useSocialButtons';
 import { useBio } from '../../hooks/useBio';
 import { useName } from '../../hooks/useName';
 import { MarginButtonWrapper, MobileSocialButton } from '../../styles/Button';
-import { MarginBio } from '../../styles/Bio';
+import { MobileBio } from '../../styles/Bio';
 import { MobileHeadShotImage } from '../../styles/Image';
 import { MobileWelcome } from '../../styles/Headers';
 import { MobileWelcomeUnderline } from '../../styles/Underline';
@@ -47,9 +47,9 @@ const MobileHome: React.FC = () => {
       </MobileWelcome>
       <MobileWelcomeUnderline/>
       <MobileHeadShotImage src={headshot} alt="headshot" />
-      <MarginBio ref={textRef}>
+      <MobileBio ref={textRef}>
         {bio}
-      </MarginBio>
+      </MobileBio>
       <MarginButtonWrapper>
         <MobileSocialButton 
           github={true}

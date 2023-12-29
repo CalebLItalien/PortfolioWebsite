@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { theme } from "../theme";
-import { MOBILE_THRESHOLD } from '../constants';
+import { HOME_THRESHOLD, MOBILE_THRESHOLD } from '../constants';
 
 export const CompanyImage = styled.img`
   height: 100px;
@@ -10,6 +10,9 @@ export const CompanyImage = styled.img`
   &:hover {
     transform: scale(1.1);
     transition: transform 0.3s ease;
+  }
+  @media (max-height: ${MOBILE_THRESHOLD}px) {
+    height: 50px;
   }
 `;
 
@@ -28,6 +31,12 @@ export const HeadShotImage = styled.img`
 
   &:hover {
     box-shadow: none;
+  }
+  @media screen and (min-width: 1000px) and (max-width: ${HOME_THRESHOLD}px) {
+    width: 70%; 
+    max-width: 70%; 
+    margin-right: 3vw;
+    }
   }
 `;
 

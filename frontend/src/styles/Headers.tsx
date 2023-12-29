@@ -14,8 +14,7 @@ export const MobileWelcome = styled.h2`
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 0.3rem;
-  margin-top: 5vh;
-  min-height: 5vh;
+  margin-top: 1vh;
 `;
 
 export const ContactMe = styled.h2`
@@ -28,6 +27,7 @@ export const ContactMe = styled.h2`
   margin-left: 5vw;
   width: calc(100% - 10vw);
 `;
+
 
 export const BasicTitle = styled.h1`
   color: ${theme.colors.LIGHTEST_ORANGE};
