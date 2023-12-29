@@ -3,7 +3,7 @@ import { theme } from "../theme";
 import { HOME_THRESHOLD, MOBILE_THRESHOLD } from '../constants';
 
 export const CenteredSection = styled.section`
-  min-height: 100vh; 
+  min-height: 90vh; 
   display: flex; 
   flex-direction: column; 
   justify-content: center; 
@@ -88,7 +88,27 @@ export const SkillsWrapper = styled.div`
 export const SkillsRatingsWrapper = styled.div`
     flex: 2; 
     background-color: ${theme.colors.LIGHTEST_ORANGE};
-    min-height: 100vh;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 ${theme.borderRadius} ${theme.borderRadius} 0;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: -10px; 
+        border-radius: inherit; 
+        filter: drop-shadow(8px 0 15px rgba(0, 0, 0, 0.4)) 
+                drop-shadow(0 8px 15px rgba(0, 0, 0, 0.4)) 
+                drop-shadow(0 -8px 15px rgba(0, 0, 0, 0.4));
+        z-index: -1; 
+    }
 `;
 
 export const ProjectsWrapper = styled.div`

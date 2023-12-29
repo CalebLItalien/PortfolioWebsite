@@ -11,7 +11,7 @@ export const Welcome = styled.h2`
 `;
 export const MobileWelcome = styled.h2`
   color: ${theme.colors.LIGHTEST_ORANGE};
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 0.3rem;
   margin-top: 1vh;

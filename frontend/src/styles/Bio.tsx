@@ -16,7 +16,7 @@ export const BioTabbed = styled.p`
 
 export const MobileBio = styled.p`
   color: ${theme.colors.LIGHTEST_ORANGE};
-  font-size: clamp(0.5rem, 1vw + 1vh, 1.5rem); 
+  font-size: clamp(0.7rem, 1vw + 1vh, 1.5rem); 
   line-height: 1.2;
   margin-top: 5vh;
   margin-left: 5vh;
