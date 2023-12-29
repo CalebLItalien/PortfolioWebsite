@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { theme } from "../theme";
+import { MOBILE_THRESHOLD } from '../constants';
 
 export const CompanyImage = styled.img`
   height: 100px;
@@ -44,8 +45,7 @@ export const MobileHeadShotImage = styled.img`
 `;
 
 export const PDFImage = styled.img`
-  height: 70vh;
-  max-width: 100%
+  height: 43vh;
   display: block;
   margin: 0 auto;
 `
@@ -63,16 +63,20 @@ export const Loading = styled.div`
   z-index: 10; 
 `;
 
-export const GithubProject = styled.img`
+type GithbuProjectsProps = {
+  windowWidth: number;
+}
+export const GithubProject = styled.img<GithbuProjectsProps>`
   cursor: pointer;
   width: 63px;
   height: 63px;
-  margin-top: 30vh; 
+  margin-top: ${props => {
+    const dynamicMargin = props.windowWidth < MOBILE_THRESHOLD ? '65vh' : '55vh';
+    return dynamicMargin;
+  }};  margin-left: 10vw;
   transition: transform 0.3s ease;
-  &:hover {
-    transform: scale(1.1);
-  }
-  &::before {
+
+  ::before {
     content: attr(data-tooltip); 
     position: absolute;
     background-color: rgba(0, 0, 0, 0.8); 
@@ -86,6 +90,9 @@ export const GithubProject = styled.img`
     transition: opacity 0.2s ease-in-out;
     pointer-events: none;  
     white-space: nowrap;  
+  }
+  &:hover {
+    transform: scale(1.1);
   }
 
   &:hover::before {

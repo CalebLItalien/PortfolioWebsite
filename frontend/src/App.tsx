@@ -122,7 +122,7 @@ export function App() {
         <Skills windowWidth={windowWidth}/>
       </StandardSection>
       <StandardSection id="projects">
-        <Projects/>
+        <Projects windowWidth={windowWidth}/>
       </StandardSection>
       <ContactSection id="contact">
         <Contact/>

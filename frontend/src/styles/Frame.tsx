@@ -41,10 +41,9 @@ export const ContactFrame = styled.div`
 `;
 
 export const PDFImageFrame = styled.div`
-  width: 50%;
+  margin-top: 25vh;
+  margin-right: 5vw;
   height: auto; 
-  margin: 0 auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: left;
 `;

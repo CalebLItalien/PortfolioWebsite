@@ -9,15 +9,19 @@ import {
   DropdownOption, 
 } from '../../styles/Dropdown';
 import { BasicTitle } from '../../styles/Headers';
+import Resume from './Resume';
 import { Underline } from '../../styles/Underline';
-import { DescriptionImageWrapper, ExperienceWrapper } from '../../styles/Wrappers';
+import { ProjectsWrapper, ProjectDescriptionWrapper } from '../../styles/Wrappers';
 import { ProjectDescription } from '../../styles/Text';
 import { GithubProject } from '../../styles/Image';
 import dropdown from '../../assets/utils/dropdown.png';
 import github from '../../assets/utils/github.png';
 
+interface ProjectProps {
+  windowWidth: number;
+}
 
-const Projects: React.FC = () => {
+const Projects: React.FC<ProjectProps> = ({ windowWidth }: ProjectProps) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [info, setInfo] = useState('');
   const [dropdownWidth, setDropdownWidth] = useState(0);
@@ -83,7 +87,7 @@ const Projects: React.FC = () => {
   }, []);
 
   return (
-    <ExperienceWrapper>
+    <ProjectsWrapper>
       <BasicTitle>Projects</BasicTitle>
       <Underline />
       <DropdownWrapper ref={dropdownRef}>
@@ -105,15 +109,18 @@ const Projects: React.FC = () => {
           </DropdownContent>
         )}
       </DropdownWrapper>
-      <DescriptionImageWrapper>
-        <a href={currentLink} target="_blank" 
-                              rel="noopener noreferrer">
-          <GithubProject src={github} alt="Github link"
-                         data-tooltip="Link to project" /> {/* not working*/}
-        </a>
+      <ProjectDescriptionWrapper>
         <ProjectDescription>{info}</ProjectDescription>
-      </DescriptionImageWrapper>
-    </ExperienceWrapper>
+        <GithubProject 
+          windowWidth={windowWidth}
+          src={github} 
+          alt="Github link" 
+          onClick={() => window.open(currentLink, '_blank')}
+          data-tooltip="Link to project" 
+        />
+      </ProjectDescriptionWrapper>
+      <Resume/>
+    </ProjectsWrapper>
   );
   
 };

@@ -84,16 +84,18 @@ export const SkillsRatingsWrapper = styled.div`
 
 export const ProjectsWrapper = styled.div`
   position: relative;
+  display: flex; 
+  align-items: start; 
+  width: 100%;   
 `;
 
 export const ResumeWrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-  width: 100vw;
+  align-items: right;
+  text-align: right;
+  width: 33vw;
 `;
 
 export const ContactWrapper = styled.div`
@@ -146,5 +148,19 @@ export const DescriptionImageWrapper = styled.div`
     cursor: pointer;
   }
 `;
+
+export const ProjectDescriptionWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: left; 
+  gap: 10px; 
+  width: 66vw;
+
+  div {
+    display: inline-block;
+    cursor: pointer;
+  }
+`;
+
 
 
