@@ -3,12 +3,11 @@ import { theme } from "../theme";
 import { HOME_THRESHOLD, MOBILE_THRESHOLD } from '../constants';
 
 export const CenteredSection = styled.section`
-  min-height: 90vh; 
+  min-height: 100vh; 
   display: flex; 
   flex-direction: column; 
   justify-content: center; 
   background: ${theme.colors.DARK_BLUE};
-  color: #333333; 
   text-align: center; 
 `;
 
@@ -122,6 +121,7 @@ export const ProjectsWrapper = styled.div`
 export const ResumeWrapper = styled.div`
   justify-content: center;
   margin-top: 20vh;
+  margin-right: 10vw;
 `;
 
 export const ContactWrapper = styled.div`

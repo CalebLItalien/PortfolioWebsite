@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { theme } from "../theme";
+import { MOBILE_THRESHOLD, SKILLS_THRESHOLD } from '../constants';
 
 interface SectionProps {
   title: string;
@@ -29,9 +30,15 @@ const IconContainer = styled.div`
 `;
 
 const StyledIcon = styled.img`
-  width: 2vw;
+  width: 2.5vw;
   height: auto;
   margin: 5px;
+  @media (max-width: ${SKILLS_THRESHOLD}px) {
+    width: 3.2vw;
+  }
+  @media (max-width: ${MOBILE_THRESHOLD}px) {
+    width: 5.3vw;
+  }
 `;
 
 const Section: React.FC<SectionProps> = ({ title, icons, ratings }) => {

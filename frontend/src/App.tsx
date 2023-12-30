@@ -13,6 +13,7 @@ import { CenteredSection,
   StandardSection,
   SkillsSection } from "./styles/Wrappers";
 import { MOBILE_THRESHOLD } from "./constants";
+import MobileProjects from './components/sections/MobileProjects';
 
 const AppWrapper = styled.div`
   height: 100vh;
@@ -27,6 +28,7 @@ export function App() {
   const [activeSection, setActiveSection] = useState('');
   const [isProgrammaticScroll, setIsProgrammaticScroll] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
   const monitorScroll = () => {
     if (isProgrammaticScroll) return;
@@ -70,6 +72,7 @@ export function App() {
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
+      setWindowHeight(window.innerHeight);
     };
   
     window.addEventListener('resize', handleResize);
@@ -109,6 +112,23 @@ export function App() {
     }
   };
 
+  const renderProjectsSection = () => {
+    if (windowWidth <= MOBILE_THRESHOLD) {
+      return (
+          <CenteredSection id="projects">
+            <MobileProjects />
+          </CenteredSection>
+      )
+    }
+    else {
+      return (
+        <StandardSection id="projects">
+          <Projects windowWidth={windowWidth}/>
+        </StandardSection>
+      )
+    }
+  }
+
   return (
     <AppWrapper>
       <NavigationBar onHeightChange={setNavBarHeight} 
@@ -122,9 +142,7 @@ export function App() {
       <SkillsSection id="skills">
         <Skills windowWidth={windowWidth}/>
       </SkillsSection>
-      <StandardSection id="projects">
-        <Projects windowWidth={windowWidth}/>
-      </StandardSection>
+      {renderProjectsSection()}
       <ContactSection id="contact">
         <Contact/>
       </ContactSection>

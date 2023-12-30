@@ -12,7 +12,7 @@ export const CompanyImage = styled.img`
     transition: transform 0.3s ease;
   }
   @media (max-height: ${MOBILE_THRESHOLD}px) {
-    height: 50px;
+    height: 60px;
   }
 `;
 
@@ -56,8 +56,8 @@ export const MobileHeadShotImage = styled.img`
 export const PDFImage = styled.img`
   height: 43vh;
   display: block;
-  margin: 0 auto;
   cursor: pointer;
+  margin: 0;
 `;
 
 export const Loading = styled.div`
