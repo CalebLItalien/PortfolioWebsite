@@ -134,7 +134,8 @@ export function App() {
       <NavigationBar onHeightChange={setNavBarHeight} 
                      scrollToSection={scrollToSection}
                      activeSection={activeSection}
-                     windowWidth={windowWidth}/>
+                     windowWidth={windowWidth}
+                     windowHeight={windowHeight}/>
       {renderHomeSection()}
       <StandardSection id="experience">
         <Experience/>

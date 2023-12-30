@@ -38,6 +38,11 @@ export const HeadShotImage = styled.img`
     margin-right: 3vw;
     }
   }
+  @media screen and (max-height: 900px) {
+    width: 70%;
+    max-width: 70%;
+    margin-right: 3vw;
+  }
 `;
 
 export const MobileHeadShotImage = styled.img`

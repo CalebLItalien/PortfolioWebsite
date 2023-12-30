@@ -157,14 +157,29 @@ export const HomeContentWrapper = styled.div<HomeProps>`
       : 100 - MIN_WIDTH_HEADSHOT;
     return `${dynamicWidth}%`;
   }};
-  padding-top: 20vh;
+  padding-top: 20vh; 
   padding-left: 15vh;
   padding-right: 15vh;
-  // @media screen (max-width: ${MOBILE_THRESHOLD}px) {
-  //   padding-left: 3vh;
-  //   padding-right: 3vh;
-  // }
+
+  @media screen and (max-height: 800px) {
+    padding-top: 15vh; 
+    padding-left: 10vh;
+    padding-right: 10vh;
+  }
+
+  @media screen and (max-height: 600px) {
+    padding-top: 10vh; 
+    padding-left: 5vh;
+    padding-right: 5vh;
+  }
+
+  @media screen and (max-width: 1500px) {
+    padding-left: 10vh;
+    padding-right: 10vh;
+  }
+
 `;
+
 
 
 export const DescriptionImageWrapper = styled.div`
