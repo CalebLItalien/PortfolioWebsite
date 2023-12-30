@@ -13,7 +13,6 @@ import { CenteredSection,
   StandardSection,
   SkillsSection } from "./styles/Wrappers";
 import { MOBILE_THRESHOLD } from "./constants";
-import MobileProjects from './components/sections/MobileProjects';
 
 const AppWrapper = styled.div`
   height: 100vh;
@@ -112,23 +111,6 @@ export function App() {
     }
   };
 
-  const renderProjectsSection = () => {
-    if (windowWidth <= MOBILE_THRESHOLD) {
-      return (
-          <CenteredSection id="projects">
-            <MobileProjects />
-          </CenteredSection>
-      )
-    }
-    else {
-      return (
-        <StandardSection id="projects">
-          <Projects windowWidth={windowWidth}/>
-        </StandardSection>
-      )
-    }
-  }
-
   return (
     <AppWrapper>
       <NavigationBar onHeightChange={setNavBarHeight} 
@@ -143,7 +125,9 @@ export function App() {
       <SkillsSection id="skills">
         <Skills windowWidth={windowWidth}/>
       </SkillsSection>
-      {renderProjectsSection()}
+      <StandardSection id="projects">
+          <Projects windowWidth={windowWidth}/>
+        </StandardSection>
       <ContactSection id="contact">
         <Contact/>
       </ContactSection>

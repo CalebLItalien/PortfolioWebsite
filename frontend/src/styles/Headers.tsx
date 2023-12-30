@@ -48,3 +48,20 @@ export const BasicTitle = styled.h1`
   left: 10vw;
   margin: 0;
 `;
+
+export const BasicMobileTitle = styled.h1`
+  color: ${theme.colors.LIGHTEST_ORANGE};
+  margin-bottom: 2.5vh;
+  margin-top: 1vh;
+  text-align: left;
+  margin-left: 10vw;
+  @media screen and (max-height: 900px) {
+    margin-bottom: 2vh;
+  }
+  @media screen and (max-height: 800px) {
+    margin-bottom: 1.5vh;
+  }
+  @media screen and (max-height: 700px) {
+    margin-bottom: 0.3vh;
+  }
+`;

@@ -1,10 +1,19 @@
 import styled from 'styled-components';
 import { theme } from "../theme";
+import { MOBILE_THRESHOLD } from '../constants';
 
-export const ProjectDescription = styled.p`
+type DescriptionProps = {
+  windowWidth: number;
+}
+
+export const ProjectDescription = styled.p<DescriptionProps>`
   color: ${theme.colors.LIGHTEST_ORANGE};
   position: absolute;
   top: 30vh;
+  top: ${props => {
+    const dynamicMargin = props.windowWidth < MOBILE_THRESHOLD ? '35vh' : '30vh';
+    return dynamicMargin;
+  }};
   left: 10vw; 
   right: 33vw;
   font-size: clamp(1rem, 1.2vw, 1.5rem); 

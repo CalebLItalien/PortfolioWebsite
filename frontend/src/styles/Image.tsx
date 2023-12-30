@@ -11,8 +11,15 @@ export const CompanyImage = styled.img`
     transform: scale(1.1);
     transition: transform 0.3s ease;
   }
+  @media (max-width: 600px) {
+    height: 70px;
+  })
   @media (max-height: ${MOBILE_THRESHOLD}px) {
     height: 60px;
+  }
+  @media (max-height: 650px) {
+    height: 40px;
+    margin-top: 32vh;
   }
 `;
 
@@ -38,7 +45,12 @@ export const HeadShotImage = styled.img`
     margin-right: 3vw;
     }
   }
-  @media screen and (max-height: 900px) {
+  @media screen and (max-height: 910px) {
+    width: 50%;
+    max-width: 50%;
+    margin-right: 3vw;
+  }
+  @media screen and (max-height: 700px) and (min-width: 1000px) {
     width: 70%;
     max-width: 70%;
     margin-right: 3vw;
@@ -56,6 +68,9 @@ export const MobileHeadShotImage = styled.img`
     box-shadow: none;
   }
   margin-top: 2vh;
+  @media screen and (max-height: 800px) {
+    width: 22vw;
+  }
 `;
 
 export const PDFImage = styled.img`
@@ -63,6 +78,11 @@ export const PDFImage = styled.img`
   display: block;
   cursor: pointer;
   margin: 0;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 20vh;
+    height: 20vh;
+  }
 `;
 
 export const Loading = styled.div`
@@ -86,11 +106,14 @@ export const GithubProject = styled.img<GithbuProjectsProps>`
   width: 63px;
   height: 63px;
   margin-top: ${props => {
-    const dynamicMargin = props.windowWidth < MOBILE_THRESHOLD ? '65vh' : '55vh';
+    const dynamicMargin = props.windowWidth < MOBILE_THRESHOLD ? '27vh' : '55vh';
     return dynamicMargin;
-  }};  margin-left: 10vw;
+  }};  
+  margin-left: 10vw;
   transition: transform 0.3s ease;
-
+  @media screen and (max-width: 768px) {
+    margin-left: -7vw;
+  }
   ::before {
     content: attr(data-tooltip); 
     position: absolute;

@@ -85,29 +85,29 @@ export const SkillsWrapper = styled.div`
 `;
 
 export const SkillsRatingsWrapper = styled.div`
-    flex: 2; 
-    background-color: ${theme.colors.LIGHTEST_ORANGE};
-    height: 30vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0 ${theme.borderRadius} ${theme.borderRadius} 0;
-    position: relative;
+  flex: 2; 
+  background-color: ${theme.colors.LIGHTEST_ORANGE};
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 ${theme.borderRadius} ${theme.borderRadius} 0;
+  position: relative;
 
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: -10px; 
-        border-radius: inherit; 
-        filter: drop-shadow(8px 0 15px rgba(0, 0, 0, 0.4)) 
-                drop-shadow(0 8px 15px rgba(0, 0, 0, 0.4)) 
-                drop-shadow(0 -8px 15px rgba(0, 0, 0, 0.4));
-        z-index: -1; 
-    }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -10px; 
+    border-radius: inherit; 
+    filter: drop-shadow(8px 0 15px rgba(0, 0, 0, 0.4)) 
+            drop-shadow(0 8px 15px rgba(0, 0, 0, 0.4)) 
+            drop-shadow(0 -8px 15px rgba(0, 0, 0, 0.4));
+    z-index: -1; 
+  }
 `;
 
 export const ProjectsWrapper = styled.div`
@@ -116,12 +116,22 @@ export const ProjectsWrapper = styled.div`
   align-items: start; 
   width: 100%;   
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const ResumeWrapper = styled.div`
   justify-content: center;
   margin-top: 20vh;
   margin-right: 10vw;
+  @media (max-width: 768px) {
+    margin-right: 0;
+    // margin-left: 25vw;
+  }
 `;
 
 export const ContactWrapper = styled.div`

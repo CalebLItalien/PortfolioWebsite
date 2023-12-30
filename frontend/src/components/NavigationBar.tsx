@@ -13,6 +13,9 @@ const Hamburger = styled.img`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  @media screen and (max-height: 550px) {
+    height: 26px;
+  }
 `;
 
 const StyledMobileNav = styled.nav`

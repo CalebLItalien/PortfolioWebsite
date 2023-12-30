@@ -111,7 +111,9 @@ const Projects: React.FC<ProjectProps> = ({ windowWidth }: ProjectProps) => {
         )}
       </DropdownWrapper>
       <ProjectDescriptionWrapper>
-        <ProjectDescription>{info}</ProjectDescription>
+        <ProjectDescription
+          windowWidth={windowWidth}>
+            {info}</ProjectDescription>
         <GithubProject 
           windowWidth={windowWidth}
           src={github} 
