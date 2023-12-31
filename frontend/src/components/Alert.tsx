@@ -75,7 +75,6 @@ const Alert: React.FC<AlertProps> = ({ message, onClose, fadeOut, type }) => {
   return (
     <ModalBackground>
       <ModalContainer fadeOut={fadeOut} type={type}>
-      {/* <CloseButton onClick={onClose}>&times;</CloseButton> */}
         <AlertMessage>{message}</AlertMessage>
       </ModalContainer>
     </ModalBackground>

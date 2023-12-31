@@ -116,7 +116,7 @@ export function NavigationBar({ onHeightChange,
 
   const renderHamburgerMenu = () => (
     <div>
-      <div onClick={() => setIsMenuOpen(!isMenuOpen)}>
+      <div onClick={toggleMenu}>
         <Hamburger src={menuIcon} alt="Menu" />
       </div>
       {isMenuOpen && (
@@ -127,7 +127,10 @@ export function NavigationBar({ onHeightChange,
     </div>
   );
   
-  
+  const toggleMenu = () => {
+    setIsMenuOpen(prevState => !prevState);
+  };
+
   return (
     <NavBarWrapper ref={navBarRef}>
       {windowWidth <= MOBILE_THRESHOLD ? (
