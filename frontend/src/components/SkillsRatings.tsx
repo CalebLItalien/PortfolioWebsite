@@ -25,7 +25,7 @@ const SectionTitle = styled.h2`
     font-size: 0.5rem;
   }
   @media screen and (max-height: 700px) {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 `;
 
@@ -36,62 +36,18 @@ const IconContainer = styled.div`
 `;
 
 const StyledIcon = styled.img`
-  width: 2.5vw;
+  width: clamp(1.5vw, 2vw + 1vh, 4vw); 
   height: auto;
   margin: 5px;
-  @media (max-width: 1160px) {
-    width: 2vw;
-  }
-  @media (max-width: 768px) {
-    width: 4vw;
-  }
-  @media screen and (max-height: 1000px) and (max-width: 600px) {
-    width: 4vw;
-  }
-  @media screen and (max-height: 800px) {
-    width: 2.8vw;
-  }
-  @media screen and (max-height: 700px) and (max-width: 600px) {
-    width: 2vw;
-  }
-  @media screen and (max-height: 500px) {
-    width: 1vw;
-  }
-  @media screen and (min-width: 500px) 
-  and (min-height: 501px) and (max-height: 700px) {
-    width: 1.8vw; 
-  }
-  @media screen and (min-width: 600px) 
-  and (min-height: 501px) and (max-height: 700px) {
-    width: 1.4vw; 
-  }
-  @media screen and (min-width: 700px) 
-  and (min-height: 501px) and (max-height: 700px) {
-    width: 1.2vw; 
-  }
-  @media screen and (min-width: 800px) 
-  and (min-height: 501px) and (max-height: 700px) {
-    width: 1vw
-  }
-  @media screen and (min-width: 800px) 
-  and (min-height: 501px) and (max-height: 800px) {
-    width: 1vw
-  }
-  @media screen and (min-width: 800px) 
-  and (min-height: 501px) and (max-height: 900px) {
-    width: 1.5vw
-  }
-  @media screen and (min-width: 800px) 
-  and (min-height: 501px) and (max-height: 1000px) {
-    width: 2vw
-  }
-  @media screen and (min-width: 800px) 
-  and (min-height: 501px) and (max-height: 1100px) {
-    width: 2.3vw
-  }
 
   transition: transform 0.3s ease-in-out;
 
+  @media screen and (max-height: 900px) {
+    width: clamp(1vh, 3vh, 4vh);
+  }
+  @media screen and (max-height: 800px) {
+    width: clamp(1vh, 2vh, 4vh);
+  }
   &:hover {
     transform: scale(1.1);
   }
