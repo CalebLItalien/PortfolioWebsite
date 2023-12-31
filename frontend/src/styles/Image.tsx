@@ -31,10 +31,9 @@ export const HeadShotImage = styled.img`
   object-fit: cover;
   box-shadow: 0px 8px 20px 5px rgba(0, 0, 0, 0.4); 
   margin-bottom: 10vh;
-  margin-left: 15px;
   transition: box-shadow 0.3s ease;
   align-self: flex-end;
-  margin-right: -4vw;
+  margin-right: -5vw;
 
   &:hover {
     box-shadow: none;
@@ -48,12 +47,7 @@ export const HeadShotImage = styled.img`
   @media screen and (max-height: 910px) {
     width: 50%;
     max-width: 50%;
-    margin-right: 3vw;
-  }
-  @media screen and (max-height: 700px) and (min-width: 1000px) {
-    width: 70%;
-    max-width: 70%;
-    margin-right: 3vw;
+    margin-right: 5vw;
   }
 `;
 

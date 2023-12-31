@@ -149,7 +149,8 @@ export const HeadshotWrapper = styled.div<HomeProps>`
   flex: 1;
   max-width: ${props => {
     const dynamicWidth = props.windowWidth <= HOME_THRESHOLD 
-      ? MAX_WIDTH_HEADSHOT + (HOME_THRESHOLD - props.windowWidth) / HOME_THRESHOLD * (100 - MAX_WIDTH_HEADSHOT - MIN_WIDTH_HEADSHOT)
+      ? MAX_WIDTH_HEADSHOT + (HOME_THRESHOLD - props.windowWidth) / 
+        HOME_THRESHOLD * (100 - MAX_WIDTH_HEADSHOT - MIN_WIDTH_HEADSHOT)
       : MIN_WIDTH_HEADSHOT;
     return `${dynamicWidth}%`;
   }};
@@ -163,7 +164,8 @@ export const HomeContentWrapper = styled.div<HomeProps>`
   flex: 2;
   max-width: ${props => {
     const dynamicWidth = props.windowWidth <= HOME_THRESHOLD 
-      ? 100 - (MAX_WIDTH_HEADSHOT + (HOME_THRESHOLD - props.windowWidth) / HOME_THRESHOLD * (100 - MAX_WIDTH_HEADSHOT - MIN_WIDTH_HEADSHOT))
+      ? 100 - (MAX_WIDTH_HEADSHOT + (HOME_THRESHOLD - props.windowWidth) / HOME_THRESHOLD * 
+      (100 - MAX_WIDTH_HEADSHOT - MIN_WIDTH_HEADSHOT))
       : 100 - MIN_WIDTH_HEADSHOT;
     return `${dynamicWidth}%`;
   }};
