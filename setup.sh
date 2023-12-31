@@ -30,7 +30,7 @@ echo "18. A pdf of your resume"
 echo "19. An SMTP Server name, username, and password - see SMTP.md for more information"
 echo "20. A no reply email and a personal email"
 
-# NEED TO ADD COMPANY LINKS AND COMPANY TIME PERIODS
+# NEED TO ADD COMPANY LINKS AND COMPANY TIME PERIODS and company titles
 
 # Acknowledge Requirements
 echo "\n"

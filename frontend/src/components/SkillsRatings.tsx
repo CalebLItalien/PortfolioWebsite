@@ -90,6 +90,11 @@ const StyledIcon = styled.img`
     width: 2.3vw
   }
 
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const Section: React.FC<SectionProps> = ({ title, icons, ratings }) => {
@@ -105,7 +110,10 @@ const Section: React.FC<SectionProps> = ({ title, icons, ratings }) => {
               const iconPath = require(`../assets/skills/${icon.toLowerCase()}.png`);
               return (
                 <div key={index}>
-                <StyledIcon src={iconPath} alt={icon} />
+                <StyledIcon 
+                  title={icon}
+                  src={iconPath} 
+                  alt={icon} />
               </div>
               );
               })}

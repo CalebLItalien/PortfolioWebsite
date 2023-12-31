@@ -33,10 +33,7 @@ export const ContactFrame = styled.div`
     margin: 0;
     overflow: auto;
     object-fit: cover;
-
-    // &:hover {
-    //     box-shadow: none;
-    // }
+    overflow: hidden;
 `;
 
 export const PDFImageFrame = styled.div`

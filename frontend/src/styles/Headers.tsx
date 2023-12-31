@@ -27,6 +27,7 @@ export const MobileWelcome = styled.h2`
   font-weight: bold;
   margin-bottom: 0.3rem;
   margin-top: 1vh;
+  min-height: 3vh;
 `;
 
 export const ContactMe = styled.h2`

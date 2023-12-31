@@ -3,6 +3,7 @@ import { useCompanyNames } from '../../hooks/useCompanyNames';
 import { useCompanyDescriptions } from '../../hooks/useCompanyDescriptions';
 import { useCompanyPeriods } from '../../hooks/useCompanyPeriods';
 import { useCompanyLinks } from '../../hooks/useCompanyLinks';
+import { useCompanyTitles } from '../../hooks/useCompanyTitles';
 import {
   DropdownWrapper,
   DropdownButton,
@@ -17,28 +18,37 @@ import { ExperienceDescription } from '../../styles/Text';
 import isFutureDate from '../utils/isFutureDate';
 import dropdown from '../../assets/utils/dropdown.png';
 
-const Experience: React.FC = () => {
+const Experience = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [info, setInfo] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [dropdownWidth, setDropdownWidth] = useState(0);
-  
+
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const companyNames = useCompanyNames();
   const companyDescriptions = useCompanyDescriptions();
   const companyPeriods = useCompanyPeriods();
   const companyLinks = useCompanyLinks();
+  const companyTitles = useCompanyTitles();
 
   const [selectedOption, setSelectedOption] = useState(companyNames[0] || '');
   const [currentLink, setCurrentLink] = useState(companyLinks[0] || '');
 
   useEffect(() => {
     if (companyNames.length > 0) {
-      const firstCompanyName = companyNames[0];
-      setSelectedOption(firstCompanyName);
+      const firstCompanyIndex = 0;
+      const firstCompanyName = companyNames[firstCompanyIndex];
+      const firstCompanyTitle = companyTitles[firstCompanyIndex] || '';
+      const firstCompanyPeriod = companyPeriods[firstCompanyIndex] || '';
+      const firstCompanyDescription = companyDescriptions[firstCompanyIndex] || 'No description available';
+      const firstCompanyLink = companyLinks[firstCompanyIndex] || '';
 
-      const firstCompanyLink = companyLinks[0] || '';
+      const formattedPeriod = isFutureDate(firstCompanyPeriod.split(' - ')[0])
+        ? `Incoming: ${firstCompanyPeriod}` : firstCompanyPeriod;
+
+      setInfo(`${firstCompanyTitle}<br/><br/>${formattedPeriod}<br/><br/>${firstCompanyDescription}`);
+      setSelectedOption(firstCompanyName);
       setCurrentLink(firstCompanyLink);
       
       const imageCompany = firstCompanyName.toLowerCase().trim().replace(/\s/g, '');
@@ -52,38 +62,30 @@ const Experience: React.FC = () => {
       } catch (error) {
         console.error(`Error outside import for ${firstCompanyName}:`, error);
       }
-
-      const firstCompanyIndex = 0;
-      const description = companyDescriptions[firstCompanyIndex] || 'No description available';
-      const period = companyPeriods[firstCompanyIndex] || '';
-      const formattedPeriod = isFutureDate(period.split(' - ')[0])
-        ? `Incoming: ${period}` : period;
-
-      setInfo(`${formattedPeriod}<br/><br/>${description}`);
     }
-  }, [companyNames, companyDescriptions, companyPeriods]);
+  }, [companyNames, companyDescriptions, companyPeriods, companyTitles, companyLinks]);
+
+  const toggleDropdown = () => {
+    calculateDropdownWidth();
+    setShowDropdown(prevShowDropdown => !prevShowDropdown);
+  };
 
   const calculateDropdownWidth = () => {
     if (dropdownRef.current && dropdownWidth === 0) {
       const options = Array.from(dropdownRef.current.querySelectorAll('button'));
       const maxWidth = options.reduce((max, option) => Math.max(max, option.offsetWidth), 0);
-      // setDropdownWidth(maxWidth * 1.1);
       setDropdownWidth(maxWidth);
     }
   };
 
-  const toggleDropdown = () => {
-    calculateDropdownWidth();
-    setShowDropdown(!showDropdown);
-  };
-
   const selectOption = async (optionIndex: number, optionLabel: string) => {
+    const title = companyTitles[optionIndex] || '';
     const description = companyDescriptions[optionIndex] || 'No description available';
     const period = companyPeriods[optionIndex] || '';
     const formattedPeriod = isFutureDate(period.split(' - ')[0])
       ? `Incoming: ${period}` : period;
 
-    setInfo(`${formattedPeriod}<br/><br/>${description}`);
+    setInfo(`${title}<br/><br/>${formattedPeriod}<br/><br/>${description}`);
     setSelectedOption(optionLabel);
     setShowDropdown(false);
 
@@ -103,7 +105,7 @@ const Experience: React.FC = () => {
   const closeDropdown = () => {
     setShowDropdown(false);
   };
-  
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -145,6 +147,7 @@ const Experience: React.FC = () => {
         {imageUrl && (
           <CompanyImage
             src={imageUrl}
+            data-tooltip="abc"
             alt={selectedOption}
             onClick={() => currentLink && window.open(currentLink, '_blank')}
             style={{ cursor: 'pointer' }}

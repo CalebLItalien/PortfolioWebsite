@@ -16,9 +16,12 @@ export const ProjectDescription = styled.p<DescriptionProps>`
   }};
   left: 10vw; 
   right: 33vw;
-  font-size: clamp(1rem, 1.2vw, 1.5rem); 
+  font-size: clamp(0.5rem, 1vw + 1vh, 1.5rem);  
   line-height: 1.2;
   text-align: left;
+  @media screen and (max-width: 768px) {
+    right: 10vw;
+  }
 `;
 
 export const ExperienceDescription = styled.p`

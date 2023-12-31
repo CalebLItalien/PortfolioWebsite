@@ -19,7 +19,7 @@ type HeadshotUnderlineProps = {
   };
   
 export const WelcomeUnderline = styled.div<HeadshotUnderlineProps>`
-    height: 1px; 
+    height: 2px; 
     width: ${props => `${props.width}px`};  
     margin-left: auto;
     margin-right: auto;

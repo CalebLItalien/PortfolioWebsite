@@ -6,7 +6,7 @@ export const CompanyImage = styled.img`
   height: 100px;
   position: relative;
   margin-top: 30vh;
-
+  
   &:hover {
     transform: scale(1.1);
     transition: transform 0.3s ease;
@@ -79,9 +79,13 @@ export const PDFImage = styled.img`
   cursor: pointer;
   margin: 0;
 
-  @media screen and (max-width: 768px) {
-    margin-top: 20vh;
+  @media screen and (max-width: 1050px) {
+    margin-top: 15vh;
     height: 20vh;
+  }
+  @media screen and (min-width: 1051px) and (max-width: 1500px) {
+    height: 30vh;
+    margin-top: 15vh;
   }
 `;
 
@@ -106,13 +110,18 @@ export const GithubProject = styled.img<GithbuProjectsProps>`
   width: 63px;
   height: 63px;
   margin-top: ${props => {
-    const dynamicMargin = props.windowWidth < MOBILE_THRESHOLD ? '27vh' : '55vh';
+    const dynamicMargin = props.windowWidth < MOBILE_THRESHOLD ? '28vh' : '70vh';
     return dynamicMargin;
   }};  
   margin-left: 10vw;
   transition: transform 0.3s ease;
   @media screen and (max-width: 768px) {
     margin-left: -7vw;
+    width: 53px;
+    height: 53px;
+  }
+  @media screen and (max-height: 650px) {
+    margin-top: 75vh;
   }
   ::before {
     content: attr(data-tooltip); 

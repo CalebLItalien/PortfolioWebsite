@@ -1,14 +1,12 @@
-Hi there! My name is Caleb L'Italien; I'm a senior at
-Union College, studying Computer Science and Mathematics.
-Hi there! My name is Caleb L'Italien; I'm a senior at
-Union College, studying Computer Science and Mathematics.
-Hi there! My name is Caleb L'Italien; I'm a senior at
-Union College, studying Computer Science and Mathematics.
-Hi there! My name is Caleb L'Italien; I'm a senior at
-Union College, studying Computer Science and Mathematics.
-Hi there! My name is Caleb L'Italien; I'm a senior at
-Union College, studying Computer Science and Mathematics.
-Hi there! My name is Caleb L'Italien; I'm a senior at
-Union College, studying Computer Science and Mathematics.
-Hi there! My name is Caleb L'Italien; I'm a senior at
-Union College, studying Computer Science and Mathematics.
+I'm a senior at Union College, studying Computer Science and Mathematics.
+I'm based in Schenectady, NY and will be graduating in June of 2024.
+With a passion for problem solving, I've developed a skillset in
+systems and full stack development. 
+I've gained professional experience in a lab setting and in a small private
+team, where I learned to develop at scale and create solutions
+geared towards client needs.
+I approach each project as an opportunity to develop my skillset through
+iterative design.
+When I'm not programming, I like to play chess, read books, and hike.
+Contact me with the form at the bottom of the page; I look forward to hearing
+from you!
