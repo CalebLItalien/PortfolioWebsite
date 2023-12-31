@@ -21,6 +21,9 @@ const SectionTitle = styled.h2`
   color: ${theme.colors.DARK_BLUE};
   font-size: 1rem;
   font-weight: 400;
+  @media screen and (max-height: 500px) {
+    font-size: 0.3rem;
+  }
   @media screen and (max-height: 600px) {
     font-size: 0.5rem;
   }
@@ -36,17 +39,20 @@ const IconContainer = styled.div`
 `;
 
 const StyledIcon = styled.img`
-  width: clamp(1.5vw, 2vw + 1vh, 4vw); 
+  width: clamp(1.5vw, 1.8vw + 1vh, 4vw); 
   height: auto;
   margin: 5px;
 
   transition: transform 0.3s ease-in-out;
 
-  @media screen and (max-height: 900px) {
+  @media screen and (max-height: 1000px) {
     width: clamp(1vh, 3vh, 4vh);
   }
-  @media screen and (max-height: 800px) {
-    width: clamp(1vh, 2vh, 4vh);
+  @media screen and (max-height: 775px) {
+    width: clamp(1vh, 2.5vh, 4vh);
+  }
+  @media screen and (max-height: 600px) {
+    width: clamp(1vh, 1.5vh, 4vh);
   }
   &:hover {
     transform: scale(1.1);

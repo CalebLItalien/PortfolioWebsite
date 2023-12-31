@@ -1,11 +1,10 @@
-C Advanced
+Rust Advanced
 TypeScript Advanced
 Python Advanced
-JavaScript Intermediate
+JavaScript Beginner
 Java Intermediate
-HTML5 Beginner
+HTML5 Intermediate
 CSS Beginner
 Scheme Intermediate
-Csharp Beginner
-Rust Intermediate
+C Intermediate
 Shell Intermediate
