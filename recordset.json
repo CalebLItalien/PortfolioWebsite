@@ -1,0 +1,18 @@
+{
+    "Comment": "A record for caleblitalien.com",
+    "Changes": [
+        {
+            "Action": "CREATE",
+            "ResourceRecordSet": {
+                "Name": "caleblitalien.com",
+                "Type": "A",
+                "TTL": 300,
+                "ResourceRecords": [
+                    {
+                        "Value": "IP_ADDRESS"
+                    }
+                ]
+            }
+        }
+    ]
+}

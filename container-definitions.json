@@ -1,0 +1,28 @@
+[
+    {
+        "name": "resume-site-frontend",
+        "image": "119232229727.dkr.ecr.us-east-1.amazonaws.com/frontend:latest",
+        "cpu": 256,
+        "memory": 512,
+        "essential": true,
+        "portMappings": [
+            {
+                "containerPort": 8080,
+                "hostPort": 8080
+            }
+        ]
+    },
+    {
+        "name": "resume-site-backend",
+        "image": "119232229727.dkr.ecr.us-east-1.amazonaws.com/backend:latest",
+        "cpu": 256,
+        "memory": 512,
+        "essential": true,
+        "portMappings": [
+            {
+                "containerPort": 8081,
+                "hostPort": 8081
+            }
+        ]
+    }
+]
