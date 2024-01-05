@@ -30,7 +30,7 @@
         "typescript": "^4.7.4",
         "uuid": "^8.3.2",
         "web-vitals": "^2.1.4",
-        "pdfjs-dist": "^4.0.269"
+        "pdfjs-dist": "^4.0.379"
     },
     "scripts": {
         "predeploy": "npm run build",

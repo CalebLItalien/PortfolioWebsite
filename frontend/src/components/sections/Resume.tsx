@@ -6,7 +6,7 @@ import { PDFImageFrame } from '../../styles/Frame';
 import { DownloadResume } from '../../styles/Text';
 import TypingAnimation from '../TypingAnimation';
 
-GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.269/pdf.worker.min.mjs';
+GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.mjs';
 
 const Resume: React.FC = () => {
   const [pdfImage, setPdfImage] = useState<string>('');
