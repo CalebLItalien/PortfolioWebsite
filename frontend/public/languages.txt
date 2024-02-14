@@ -5,6 +5,6 @@ JavaScript Beginner
 Java Intermediate
 HTML5 Intermediate
 CSS Beginner
-Scheme Intermediate
 C Intermediate
-Shell Intermediate
+COBOL Beginner
+SQL Intermediate
