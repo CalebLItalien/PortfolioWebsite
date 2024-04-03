@@ -1,28 +1,38 @@
-[
-    {
+{
+    "family": "ResumeSite",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+      "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "containerDefinitions": [
+      {
         "name": "resume-site-frontend",
         "image": "119232229727.dkr.ecr.us-east-1.amazonaws.com/frontend:latest",
-        "cpu": 256,
-        "memory": 512,
+        "cpu": 128,
+        "memory": 128,
         "essential": true,
         "portMappings": [
-            {
-                "containerPort": 8080,
-                "hostPort": 8080
-            }
+          {
+            "containerPort": 8080,
+            "hostPort": 8080
+          }
         ]
-    },
-    {
+      },
+      {
         "name": "resume-site-backend",
         "image": "119232229727.dkr.ecr.us-east-1.amazonaws.com/backend:latest",
-        "cpu": 256,
-        "memory": 512,
+        "cpu": 128,
+        "memory": 128,
         "essential": true,
         "portMappings": [
-            {
-                "containerPort": 8081,
-                "hostPort": 8081
-            }
+          {
+            "containerPort": 8081,
+            "hostPort": 8081
+          }
         ]
-    }
-]
+      }
+    ]
+}
+  

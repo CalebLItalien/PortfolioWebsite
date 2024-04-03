@@ -1,22 +1,17 @@
 version: '3.8'
 services:
   frontend:
-    build: ./frontend
-    volumes:
-      - ./frontend:/app
+    image: 119232229727.dkr.ecr.us-east-1.amazonaws.com/frontend:latest
     ports:
       - "8080:3000"
       
   backend:
-    build: ./api
-    volumes:
-      - ./api:/usr/src/myapp
+    image: 119232229727.dkr.ecr.us-east-1.amazonaws.com/backend:latest
     ports:
       - "8081:8081"
     environment:
-      - SMTP_SERVER=${SMTP_SERVER}
-      - SMTP_USERNAME=${SMTP_USERNAME}
-      - SMTP_PASSWORD=${SMTP_PASSWORD}
-      - NO_REPLY_EMAIL=${NO_REPLY_EMAIL}
-      - INBOX_EMAIL=${INBOX_EMAIL}
-
+      SMTP_SERVER: ${SMTP_SERVER}
+      SMTP_USERNAME: ${SMTP_USERNAME}
+      SMTP_PASSWORD: ${SMTP_PASSWORD}
+      NO_REPLY_EMAIL: ${NO_REPLY_EMAIL}
+      INBOX_EMAIL: ${INBOX_EMAIL}

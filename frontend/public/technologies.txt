@@ -1,0 +1,7 @@
+MongoDB Intermediate
+MySQL Beginner
+Git Advanced
+AWS Intermediate
+Docker Advanced
+DB2 Beginner
+Gradle Intermediate
