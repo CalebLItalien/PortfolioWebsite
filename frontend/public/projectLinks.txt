@@ -1,2 +1,6 @@
 https://github.com/CalebLItalien/PortfolioWebsiteGenerator
+https://github.com/UnionCompilerDesign
+https://github.com/CherokeeLanguage
 https://github.com/CalebLItalien/os-161
+https://github.com/CalebLItalien/ToyPL
+https://github.com/CalebLItalien/optimal_2048
