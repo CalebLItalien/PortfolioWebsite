@@ -1,10 +1,10 @@
 Rust Advanced
 TypeScript Advanced
 Python Advanced
-JavaScript Beginner
+JavaScript Intermediate
 Java Intermediate
 HTML5 Intermediate
 CSS Beginner
 C Intermediate
 COBOL Beginner
-SQL Intermediate
+SQL Beginner

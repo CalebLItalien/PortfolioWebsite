@@ -1,2 +1,6 @@
 Portfolio Website Generator
+Instructional C Compiler
+Cherokee Language Exercises
 OS/161
+ToyPL
+Optimal 2048
