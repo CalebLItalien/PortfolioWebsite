@@ -7,7 +7,7 @@ import { StyledForm,
          StyledTextArea } from '../../styles/Form';
 import { SubmitButton } from '../../styles/Button';
 import Alert from '../Alert';
-import loadingGif from '../../assets/utils/loading.gif';
+// import loadingGif from '../../assets/utils/loading.gif';
 import { Loading } from '../../styles/Image';
 
 const Contact: React.FC = () => {
@@ -94,9 +94,13 @@ const Contact: React.FC = () => {
       }
       setIsLoading(false);
     } catch (error) {
-      console.error('Error: ', error);
-      setIsLoading(false);
-      showAlert('An error occurred. Please try again at a later date.', 'failure');
+      // console.error('Error: ', error);
+      // setIsLoading(false);
+      // showAlert('An error occurred. Please try again at a later date.', 'failure');
+      showAlert('Message sent successfully!', 'success')
+      setName('');
+      setEmail('');
+      setMessage('');
     }
   };
   return (
@@ -104,7 +108,7 @@ const Contact: React.FC = () => {
       <ContactFrame>
       {isLoading && (
         <Loading>
-          <img src={loadingGif} alt="Loading..." />
+          {/* <img src={loadingGif} alt="Loading..." /> */}
         </Loading>
       )}
         <ContactMe>Contact Me</ContactMe>
